@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="@Url.Content("~/Scripts/html5.js")"></script>
+<![endif]-->
+<!-- the "no-js" class is for Modernizr. -->
+
+<head>
+   <meta charset="utf-8">
+	
+	<meta name="description" content="The content description">
+   <link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.ico")">
+	
+
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/css/Html5Reset.css")" rel="stylesheet"/>
+    <link href="@Url.Content("~/css/Site.css")" rel="stylesheet"/>
+      
+   
+    <script src="@Url.Content("~/Scripts/modernizr-2.0.6.js")"></script>
+    
+
+</head>
+
+<body id="page">
+   <!-- Begin the page section with the section tag -->
+
+            <header id="PageHeader">
+                <hgroup>
+                    <h1>ASP.NET MVC HTML5 </h1>
+                    <h2 class="stylishHeader">Mobile ready &amp; Valid HTML5 </h2>
+                </hgroup>
+                  <nav id="login">
+                  @Html.Partial("_LogOnPartial")  
+                  </nav>              
+                <nav title="Main Navigation"> 
+                    <ul>
+                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                         <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li><a href="http://www.asp.net/">Learn</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="line"></div>
+      <!-- body of the pages should start with section class="content" -->      
+
+@RenderBody()
+
+        <footer id="pageFooter"> <!--begin master footer -->
+           <div class="line"></div>
+           <h4 class="stylishHeader">@Html.Raw( string.Format("{0} {1} {2}" ,"&copy;",DateTime.Now.Year,"Yourwebsite.com"))</h4> 
+           
+           <a href="http://www.w3.org/html/logo/" class="nobg">
+<img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-device-graphics-multimedia-performance-semantics-storage.png" width="357" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage">
+</a>
+           
+        </footer><!--end master footer -->
+            
+		
+    <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.6.4.min.js"></script>
+<script> window.jQuery || document.write(unescape("%3Cscript src='@Url.Content("~/Scripts/jquery-1.6.4.min.js")'%3E%3C/script%3E"))</script>
+
+   @RenderSection("scripts",false)
+   
+</body>
+</html>

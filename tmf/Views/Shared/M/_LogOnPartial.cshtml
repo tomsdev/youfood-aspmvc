@@ -1,0 +1,12 @@
+﻿@if
+    (Request.IsAuthenticated) {
+    <text>Welcome <strong>@User.Identity.Name</strong>!
+    
+      <a data-role="button" class="no-Ajax" data-transition="flip"  style="float:right" href="@Url.Action("LogOff","Account")">Log off</a>
+     </text>
+}
+else {
+    <a data-role="button" class="no-Ajax" data-transition="flip"  style="float:right" href="@Url.Action("LogOn","Account")">Log on</a>
+    
+}
+

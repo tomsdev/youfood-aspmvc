@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="@Url.Content("~/css/Mobile.css")" />
+    <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" /> 
+   <title>@ViewBag.Title</title>
+     
+</head>
+<body>
+   <div data-role="page" class="type-home" data-theme="b"> 
+	<div data-role="header"> 
+   
+    <div data-inline="true">
+	
+	   @Html.Partial("M/_LogOnPartial") 
+</div>
+<h1 aria-level="1">Mobile MVC3.0</h1>
+    <div data-role="navbar" class="ui-navbar ui-navbar-noicons" role="navigation">
+			<ul class="ui-grid-b">
+				<li class="ui-block-a">@Html.ActionLink("Home", "Index", "Home",null, new { @class = "no-Ajax ui-btn ui-btn-up-a"}) </li>
+				<li class="ui-block-b">@Html.ActionLink("About", "About", "Home", null, new { @class = "no-Ajax ui-btn ui-btn-up-a"}) </li>
+               <li class="ui-block-b"><a href="http://asp.net/mvc" class="no-Ajax">Learn</a> </li>
+			</ul>
+		</div><!-- /navbar -->
+
+       
+    </div>
+    <div data-role="content" data-theme="b">
+      @RenderBody()
+      </div>
+<div data-role="footer" data-theme="b">
+</div>
+    </div>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.6.4.min.js"></script>
+<script> window.jQuery || document.write(unescape("%3Cscript src='@Url.Content("~/Scripts/jquery-1.6.4.min.js")'%3E%3C/script%3E"))</script>
+   <script type="text/javascript">
+
+       $(document).bind("mobileinit", function () {
+
+          //call scripts here
+
+       });
+      
+ 
+   </script>
+   <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> 
+   <script> window.jQuery || document.write(unescape("%3Cscript src='@Url.Content("~/Scripts/jquery.mobile-1.0.min.js")'%3E%3C/script%3E"))</script>
+
+   @RenderSection("scripts",false)
+</body>
+</html>

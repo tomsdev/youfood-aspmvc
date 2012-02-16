@@ -1,0 +1,64 @@
+﻿@model tmf.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/M/_Layout.cshtml";
+}
+
+<div data-theme="b">
+
+<h2>Register</h2>
+
+
+<div data-role="fieldcontain">
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.")
+ 
+        <fieldset>
+            <legend>Account Information</legend>
+          
+         
+                @Html.LabelFor(m => m.UserName)
+            
+            
+                @Html.TextBoxFor(m => m.UserName, new { required = "required" })
+                @Html.ValidationMessageFor(m => m.UserName)
+          
+            <br>
+          
+                @Html.LabelFor(m => m.Email)
+         
+                @Html.TextBoxFor(m => m.Email, new { type="email", required="required"})
+                @Html.ValidationMessageFor(m => m.Email)
+            <br>
+
+         
+                @Html.LabelFor(m => m.Password)
+           
+        
+                @Html.PasswordFor(m => m.Password, new { type="password",required="required"})
+                @Html.ValidationMessageFor(m => m.Password)
+         <br>
+
+           
+                @Html.LabelFor(m => m.ConfirmPassword)
+         
+       
+                @Html.PasswordFor(m => m.ConfirmPassword, new { type = "password", required = "required" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+           <br>
+
+          
+                <input type="submit" value="Register" />
+            
+        </fieldset>
+
+}
+</div>
+</div>
+
+@section scripts
+{
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}
