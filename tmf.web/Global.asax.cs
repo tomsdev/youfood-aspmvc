@@ -31,6 +31,16 @@ namespace tmf.web
 
         protected void Application_Start()
         {
+            var configuration = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+            var connectionString = configuration.ConnectionStrings.ConnectionStrings["ApplicationServices"].ConnectionString;
+            if (!connectionString.Contains("MultipleActiveResultSets=True;"))
+            {
+                connectionString += "MultipleActiveResultSets=True;";
+            }
+
+            configuration.ConnectionStrings.ConnectionStrings["ApplicationServices"].ConnectionString = connectionString;
+            configuration.Save();
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
