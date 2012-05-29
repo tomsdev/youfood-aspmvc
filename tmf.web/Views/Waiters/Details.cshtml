@@ -1,0 +1,26 @@
+@model tmf.entities.Waiter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Waiter</legend>
+
+    <div class="display-label">FullName</div>
+    <div class="display-field">@Model.FullName</div>
+
+    <div class="display-label">Zones</div>
+    <div class="display-field">@(Model.Zones == null ? "None" : Model.Zones.Count.ToString())</div>
+
+    <div class="display-label">Orders</div>
+    <div class="display-field">@(Model.Orders == null ? "None" : Model.Orders.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

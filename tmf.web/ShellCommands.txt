@@ -1,0 +1,7 @@
+﻿// Pour générer le CRUD:
+
+$controllers = "Restaurant", "Waiter", "Zone", "Menu", "ProductType", "Order"; foreach ($controller in $controllers) { Scaffold Controller $controller -Repository -Force }
+
+// Pour mettre à jour la BDD si le schéma change:
+
+Update-Database

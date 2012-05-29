@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using tmf.business;
+using tmf.web.Models;
 
 namespace tmf.web
 {
@@ -32,14 +35,16 @@ namespace tmf.web
         protected void Application_Start()
         {
             var configuration = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
-            var connectionString = configuration.ConnectionStrings.ConnectionStrings["ApplicationServices"].ConnectionString;
+            var connectionString = configuration.ConnectionStrings.ConnectionStrings["tmfwebContext"].ConnectionString;
             if (!connectionString.Contains("MultipleActiveResultSets=True;"))
             {
                 connectionString += "MultipleActiveResultSets=True;";
             }
 
-            configuration.ConnectionStrings.ConnectionStrings["ApplicationServices"].ConnectionString = connectionString;
+            configuration.ConnectionStrings.ConnectionStrings["tmfwebContext"].ConnectionString = connectionString;
             configuration.Save();
+
+            Database.SetInitializer(new DataContextInitializer());
 
             AreaRegistration.RegisterAllAreas();
 

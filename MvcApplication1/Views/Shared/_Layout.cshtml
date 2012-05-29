@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width" />
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/css")" rel="stylesheet" type="text/css" />
+        <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")"></script>
+        <script>
+            $(document).bind("mobileinit", function() {
+                // As of Beta 2, jQuery Mobile's Ajax navigation does not work in all cases (e.g.,
+                // when navigating from a mobile to a non-mobile page, or when clicking "back"
+                // after a form post), hence disabling it.
+                $.mobile.ajaxEnabled = false;
+            });
+        </script>
+    </head>
+    <body>
+        <div data-role="page" data-theme="b">
+            <div data-role="header">
+                @if (IsSectionDefined("Header")) {
+                    @RenderSection("Header")
+                } else {
+                    <h1>@ViewBag.Title</h1>
+                    @Html.Partial("_LoginPartial")
+                }
+            </div>
+            <div data-role="content">
+                @RenderBody()
+            </div>
+        </div>
+    </body>
+</html>

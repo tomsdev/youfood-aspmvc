@@ -1,0 +1,35 @@
+@model tmf.entities.Order
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">Table</div>
+    <div class="display-field">@Model.Table</div>
+
+    <div class="display-label">State</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.State).ToString()</div>
+
+    <div class="display-label">Waiter</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Waiter).ToString()</div>
+
+    <div class="display-label">Restaurant</div>
+    <div class="display-field">@(Model.Restaurant == null ? "None" : Model.Restaurant.Name)</div>
+
+    <div class="display-label">Menus</div>
+    <div class="display-field">@(Model.Menus == null ? "None" : Model.Menus.Count.ToString())</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+
