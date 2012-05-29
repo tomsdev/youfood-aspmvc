@@ -15,7 +15,7 @@ namespace tmf.entities
     public class Restaurant
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [HiddenInput(DisplayValue = false)]
         public Guid Id { get; set; }
 

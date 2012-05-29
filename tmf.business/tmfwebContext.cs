@@ -31,11 +31,11 @@ namespace tmf.business
 
         public DbSet<Order> Orders { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            // Configure Code First to ignore PluralizingTableName convention
-            // If you keep this convention then the generated tables will have pluralized names.
-            modelBuilder.Entity<Restaurant>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    // Configure Code First to ignore PluralizingTableName convention
+        //    // If you keep this convention then the generated tables will have pluralized names.
+        //    modelBuilder.Entity<Restaurant>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+        //}
     }
 }
