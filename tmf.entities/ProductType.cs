@@ -25,5 +25,10 @@ namespace tmf.entities
         // Relations
 
         public virtual ICollection<Menu> Menus { get; set; }
+
+        public override string ToString()
+        {
+            return Description;
+        }
     }
 }

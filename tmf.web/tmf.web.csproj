@@ -207,6 +207,10 @@
     <Content Include="Views\Home\Index.mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\mvc.helpers\mvc.helpers.csproj">
+      <Project>{741e6786-3fa0-4f04-9a89-8bb8659e2d67}</Project>
+      <Name>mvc.helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\tmf.business\tmf.business.csproj">
       <Project>{e9879902-8c1d-4582-8a93-1cb8e4683edb}</Project>
       <Name>tmf.business</Name>

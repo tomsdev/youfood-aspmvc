@@ -27,5 +27,10 @@ namespace tmf.entities
         public virtual ICollection<Zone> Zones { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

@@ -1,5 +1,7 @@
 @model tmf.entities.Order
 
+@using mvc.helpers
+
 @* This partial view defines form fields that will appear when creating and editing entities *@
 
 <div class="editor-label">
@@ -31,4 +33,10 @@
         Selected = (Model != null) && (option.Id == Model.RestaurantId)
     }), "Choose...")
     @Html.ValidationMessageFor(model => model.RestaurantId)
+</div>
+<div class="editor-label">
+    State
+</div>
+<div class="editor-field">
+    @Html.EnumDropDownListFor(m => m.State)
 </div>

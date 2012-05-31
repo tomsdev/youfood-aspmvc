@@ -22,11 +22,33 @@ namespace tmf.entities
         [Required]
         public int Table { get; set; }
 
-        /// <summary>
-        /// Current state of the order
-        /// </summary>
-        [Required]
+        ///// <summary>
+        ///// Current state of the order
+        ///// </summary>
+        //[Required]
+        //public int State { get; set; }
+
+        ///// <summary>
+        ///// Current state of the order
+        ///// </summary>
+        //[NotMapped]
+        //[ScaffoldColumn(false)]
+        //public OrderState StateProp
+        //{
+        //    get {
+        //        return (OrderState)State;
+        //    }
+        //    set {
+
+        //    }
+        //}
+
+        [NotMapped]
+        [ScaffoldColumn(false)]
         public OrderState State { get; set; }
+
+        [Required]
+        public int StateValue { get { return (int)State; } set { State = (OrderState)value; } }
 
         // Relations
 
@@ -47,6 +69,12 @@ namespace tmf.entities
         /// Menus placed in the order
         /// </summary>
         public virtual ICollection<Menu> Menus { get; set; }
+
+        public override string ToString()
+        {
+            //ex: Table 3 (Paid)
+            return "Table " + Table + " (" + State.ToString() + ")";
+        }
     }
 
 }

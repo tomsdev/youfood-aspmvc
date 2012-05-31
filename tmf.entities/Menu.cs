@@ -28,5 +28,10 @@ namespace tmf.entities
         public Guid ProductTypeId { get; set; }
 
         public ProductType ProductType { get; set; }
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }

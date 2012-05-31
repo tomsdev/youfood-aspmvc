@@ -25,6 +25,16 @@ namespace tmf.entities
         // Relations
 
         public virtual ICollection<Order> Orders { get; set; }
+
+        /// <summary>
+        /// Zones (of tables) in the restaurant
+        /// </summary>
+        public virtual ICollection<Zone> Zones { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
 }

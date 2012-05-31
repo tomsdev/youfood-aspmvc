@@ -34,5 +34,18 @@ namespace tmf.entities
         public Waiter Waiter { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public Guid RestaurantId { get; set; }
+
+        /// <summary>
+        /// Corresponding restaurant
+        /// </summary>
+        public Restaurant Restaurant { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
