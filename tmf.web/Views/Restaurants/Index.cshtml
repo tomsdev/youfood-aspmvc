@@ -18,6 +18,9 @@
         <th>
             Orders
         </th>
+        <th>
+            Zones
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -32,6 +35,9 @@
         </td>
         <td>
 			@(item.Orders == null ? "None" : item.Orders.Count.ToString())
+        </td>
+        <td>
+			@(item.Zones == null ? "None" : item.Zones.Count.ToString())
         </td>
     </tr>
 }

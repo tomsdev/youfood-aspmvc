@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using tmf.entities;
 using tmf.web.Models;
-using tmf.business.repositories;
 
 namespace tmf.web.Controllers
 {   
@@ -28,7 +27,7 @@ namespace tmf.web.Controllers
 
         public ViewResult Index()
         {
-            return View(restaurantRepository.AllIncluding(restaurant => restaurant.Orders));
+            return View(restaurantRepository.AllIncluding(restaurant => restaurant.Orders, restaurant => restaurant.Zones));
         }
 
         //

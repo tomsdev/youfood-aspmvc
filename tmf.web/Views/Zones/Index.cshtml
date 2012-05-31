@@ -21,6 +21,9 @@
         <th>
             Orders
         </th>
+        <th>
+            Restaurant
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -38,6 +41,9 @@
         </td>
         <td>
 			@(item.Orders == null ? "None" : item.Orders.Count.ToString())
+        </td>
+        <td>
+			@(item.Restaurant == null ? "None" : item.Restaurant.Name)
         </td>
     </tr>
 }

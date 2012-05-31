@@ -18,6 +18,9 @@
 
     <div class="display-label">Orders</div>
     <div class="display-field">@(Model.Orders == null ? "None" : Model.Orders.Count.ToString())</div>
+
+    <div class="display-label">Restaurant</div>
+    <div class="display-field">@(Model.Restaurant == null ? "None" : Model.Restaurant.Name)</div>
 </fieldset>
 @using (Html.BeginForm()) {
     <p>

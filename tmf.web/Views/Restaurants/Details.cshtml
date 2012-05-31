@@ -14,6 +14,9 @@
 
     <div class="display-label">Orders</div>
     <div class="display-field">@(Model.Orders == null ? "None" : Model.Orders.Count.ToString())</div>
+
+    <div class="display-label">Zones</div>
+    <div class="display-field">@(Model.Zones == null ? "None" : Model.Zones.Count.ToString())</div>
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |

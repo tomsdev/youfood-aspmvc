@@ -116,6 +116,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\MenuRepository.cs" />
+    <Compile Include="Models\OrderRepository.cs" />
+    <Compile Include="Models\ProductTypeRepository.cs" />
+    <Compile Include="Models\RestaurantRepository.cs" />
+    <Compile Include="Models\WaiterRepository.cs" />
+    <Compile Include="Models\ZoneRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

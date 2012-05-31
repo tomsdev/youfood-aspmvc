@@ -5,23 +5,24 @@ using System.Web;
 using System.Web.Mvc;
 using tmf.entities;
 using tmf.web.Models;
-using tmf.business.repositories;
 
 namespace tmf.web.Controllers
 {   
     public class ZonesController : Controller
     {
 		private readonly IWaiterRepository waiterRepository;
+		private readonly IRestaurantRepository restaurantRepository;
 		private readonly IZoneRepository zoneRepository;
 
 		// If you are using Dependency Injection, you can delete the following constructor
-        public ZonesController() : this(new WaiterRepository(), new ZoneRepository())
+        public ZonesController() : this(new WaiterRepository(), new RestaurantRepository(), new ZoneRepository())
         {
         }
 
-        public ZonesController(IWaiterRepository waiterRepository, IZoneRepository zoneRepository)
+        public ZonesController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IZoneRepository zoneRepository)
         {
 			this.waiterRepository = waiterRepository;
+			this.restaurantRepository = restaurantRepository;
 			this.zoneRepository = zoneRepository;
         }
 
@@ -30,7 +31,7 @@ namespace tmf.web.Controllers
 
         public ViewResult Index()
         {
-            return View(zoneRepository.AllIncluding(zone => zone.Waiter, zone => zone.Orders));
+            return View(zoneRepository.AllIncluding(zone => zone.Waiter, zone => zone.Orders, zone => zone.Restaurant));
         }
 
         //
@@ -47,6 +48,7 @@ namespace tmf.web.Controllers
         public ActionResult Create()
         {
 			ViewBag.PossibleWaiters = waiterRepository.All;
+			ViewBag.PossibleRestaurants = restaurantRepository.All;
             return View();
         } 
 
@@ -62,6 +64,7 @@ namespace tmf.web.Controllers
                 return RedirectToAction("Index");
             } else {
 				ViewBag.PossibleWaiters = waiterRepository.All;
+				ViewBag.PossibleRestaurants = restaurantRepository.All;
 				return View();
 			}
         }
@@ -72,6 +75,7 @@ namespace tmf.web.Controllers
         public ActionResult Edit(System.Guid id)
         {
 			ViewBag.PossibleWaiters = waiterRepository.All;
+			ViewBag.PossibleRestaurants = restaurantRepository.All;
              return View(zoneRepository.Find(id));
         }
 
@@ -87,6 +91,7 @@ namespace tmf.web.Controllers
                 return RedirectToAction("Index");
             } else {
 				ViewBag.PossibleWaiters = waiterRepository.All;
+				ViewBag.PossibleRestaurants = restaurantRepository.All;
 				return View();
 			}
         }
@@ -115,6 +120,7 @@ namespace tmf.web.Controllers
         {
             if (disposing) {
                 waiterRepository.Dispose();
+                restaurantRepository.Dispose();
                 zoneRepository.Dispose();
             }
             base.Dispose(disposing);

@@ -1,7 +1,5 @@
 @model tmf.entities.Order
 
-@using mvc.helpers
-
 @* This partial view defines form fields that will appear when creating and editing entities *@
 
 <div class="editor-label">
@@ -10,6 +8,14 @@
 <div class="editor-field">
     @Html.EditorFor(model => model.Table)
     @Html.ValidationMessageFor(model => model.Table)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.StateValue)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.StateValue)
+    @Html.ValidationMessageFor(model => model.StateValue)
 </div>
 
 <div class="editor-label">

@@ -21,3 +21,14 @@
     }), "Choose...")
     @Html.ValidationMessageFor(model => model.WaiterId)
 </div>
+<div class="editor-label">
+    Restaurant
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.RestaurantId, ((IEnumerable<tmf.entities.Restaurant>)ViewBag.PossibleRestaurants).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.RestaurantId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.RestaurantId)
+</div>
