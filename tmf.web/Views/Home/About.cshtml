@@ -2,13 +2,26 @@
     ViewBag.Title = "About Us";
 }
 
-<h2>About</h2>
-<p>
-     Put content here.
-</p>
+<!--<div id="new-user">
+    <form id="join" action="#">
+        <label for="username">Name:</label>
+        <input type="text" id="username" />
+        <input type="submit" value="Join" />
+    </form>
+</div>-->
 
-@*<ul data-role="listview" data-inset="true">
-    <li data-role="list-divider">Navigation</li>
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-</ul>*@
+<div id="item-area">
+        
+    <label for="user">User: </label><input id="user" type="text" value="" />
+
+    <form id="create-item" action="#">
+        <input type="text" id="new-title" />
+        <input type="submit" id="create" value="Create" />
+    </form>
+
+    <ul id="items">
+            
+    </ul>
+</div>
+
+<script type="text/javascript" src="@Url.Content("~/Hubs/TmfHub.js")"></script>

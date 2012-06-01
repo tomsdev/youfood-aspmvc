@@ -44,10 +44,12 @@ namespace tmf.entities
         //}
 
         [NotMapped]
-        [ScaffoldColumn(false)]
+        [Required]
+        //[ScaffoldColumn(false)]
         public OrderState State { get; set; }
 
         [Required]
+        [ScaffoldColumn(false)]
         public int StateValue { get { return (int)State; } set { State = (OrderState)value; } }
 
         // Relations

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using tmf.entities;
+using tmf.web.Hubs;
 using tmf.web.Models;
 
 namespace tmf.web.Controllers
@@ -61,6 +62,11 @@ namespace tmf.web.Controllers
             if (ModelState.IsValid) {
                 orderRepository.InsertOrUpdate(order);
                 orderRepository.Save();
+
+                // SignalR
+                // Push en temps réel du nouvel Order aux clients connecté
+                TmfHubActions.CreateItem();
+
                 return RedirectToAction("Index");
             } else {
 				ViewBag.PossibleWaiters = waiterRepository.All;

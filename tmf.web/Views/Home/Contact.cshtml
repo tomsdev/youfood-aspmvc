@@ -10,10 +10,30 @@
 <h3>Email:</h3>
 <span><a href="mailto:">General@example.com</a></span>
 
+
 @*<ul data-role="listview" data-inset="true">
     <li data-role="list-divider">Navigation</li>
     <li>@Html.ActionLink("Home", "Index", "Home")</li>
     <li>@Html.ActionLink("About", "About", "Home")</li>
-</ul>
-*@
+</ul>*@
 
+@*<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR Items Test</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.signalR-0.5.0.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/signalr/hubs")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Hubs/ChatHub.js")"></script>
+</head>
+<body>
+     <input type="text" id="msg" />
+      <input type="button" id="broadcast" value="broadcast" />
+
+      <ul id="messages">
+      </ul>
+</body>
+</html>*@

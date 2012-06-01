@@ -14,6 +14,13 @@ namespace tmf.business
     {
         protected override void Seed(tmfwebContext context)
         {
+            //string result = "result: ";
+
+            //foreach (var item in context.Restaurants)
+            //{
+            //    result += item.Name + "; ";
+            //}
+
             //MembershipCreateStatus Status;
             //Membership.CreateUser("Demo", "123456", "demo@demo.com", null, null, true, out Status);
             //Roles.CreateRole("Admin");

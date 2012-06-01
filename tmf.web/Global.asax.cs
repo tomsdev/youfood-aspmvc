@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using tmf.business;
 using tmf.web.Models;
+using tmf.entities;
 
 namespace tmf.web
 {
@@ -39,10 +40,9 @@ namespace tmf.web
             if (!connectionString.Contains("MultipleActiveResultSets=True;"))
             {
                 connectionString += "MultipleActiveResultSets=True;";
+                configuration.ConnectionStrings.ConnectionStrings["tmfwebContext"].ConnectionString = connectionString;
+                configuration.Save();
             }
-
-            configuration.ConnectionStrings.ConnectionStrings["tmfwebContext"].ConnectionString = connectionString;
-            configuration.Save();
 
             Database.SetInitializer(new DataContextInitializer());
 

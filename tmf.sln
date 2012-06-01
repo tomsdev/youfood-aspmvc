@@ -7,9 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tmf.business", "tmf.busines
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tmf.entities", "tmf.entities\tmf.entities.csproj", "{880E8D9A-9E79-4D59-B3A7-600E160A28A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication1", "MvcApplication1\MvcApplication1.csproj", "{7FB683A6-6916-45B9-B600-756D98A9EE52}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc.helpers", "mvc.helpers\mvc.helpers.csproj", "{741E6786-3FA0-4F04-9A89-8BB8659E2D67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5D656B75-8C99-41FD-844E-76D20E3DCB41}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +28,6 @@ Global
 		{741E6786-3FA0-4F04-9A89-8BB8659E2D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{741E6786-3FA0-4F04-9A89-8BB8659E2D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{741E6786-3FA0-4F04-9A89-8BB8659E2D67}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FB683A6-6916-45B9-B600-756D98A9EE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FB683A6-6916-45B9-B600-756D98A9EE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FB683A6-6916-45B9-B600-756D98A9EE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FB683A6-6916-45B9-B600-756D98A9EE52}.Release|Any CPU.Build.0 = Release|Any CPU
 		{880E8D9A-9E79-4D59-B3A7-600E160A28A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{880E8D9A-9E79-4D59-B3A7-600E160A28A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{880E8D9A-9E79-4D59-B3A7-600E160A28A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
