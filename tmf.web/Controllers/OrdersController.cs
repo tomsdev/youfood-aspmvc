@@ -14,17 +14,21 @@ namespace tmf.web.Controllers
 		private readonly IWaiterRepository waiterRepository;
 		private readonly IRestaurantRepository restaurantRepository;
 		private readonly IOrderRepository orderRepository;
+        private readonly IZoneRepository zoneRepository;
+        private readonly IMenuRepository menuRepository;
 
 		// If you are using Dependency Injection, you can delete the following constructor
-        public OrdersController() : this(new WaiterRepository(), new RestaurantRepository(), new OrderRepository())
+        public OrdersController() : this(new WaiterRepository(), new RestaurantRepository(), new OrderRepository(), new ZoneRepository(), new MenuRepository())
         {
         }
 
-        public OrdersController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderRepository orderRepository)
+        public OrdersController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderRepository orderRepository, IZoneRepository zoneRepository, IMenuRepository menuRepository)
         {
 			this.waiterRepository = waiterRepository;
 			this.restaurantRepository = restaurantRepository;
 			this.orderRepository = orderRepository;
+            this.zoneRepository = zoneRepository;
+            this.menuRepository = menuRepository;
         }
 
         //
@@ -57,9 +61,22 @@ namespace tmf.web.Controllers
         // POST: /Orders/Create
 
         [HttpPost]
-        public ActionResult Create(Order order)
+        public ActionResult Create(Order order, System.Guid idMenu)
         {
             if (ModelState.IsValid) {
+                if (order.Table <= 10) // pour choisir une zone suivant le numero de table
+                {
+                    var zoneQuery = from zone in zoneRepository.All
+                                    where zone.Name == "Zone1"
+                                    select zone;
+
+                    // c'est ici que ça chie je recup bien le waiterId mais le waiter il en a rien a foutre il reste a null quand meme
+                    order.WaiterId = zoneQuery.FirstOrDefault().WaiterId;
+                    order.Waiter = zoneQuery.FirstOrDefault().Waiter;
+                    //c'est ici que le soft crash comme tout l'order est a null je peut rien y ajouter paradoxal je veux remplir bah il veut pas car null
+                    order.Menus.Add(menuRepository.Find(idMenu));
+
+                }
                 orderRepository.InsertOrUpdate(order);
                 orderRepository.Save();
 
