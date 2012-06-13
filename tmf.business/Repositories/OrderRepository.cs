@@ -1,18 +1,49 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
 using tmf.entities;
+using tmf.business;
 
-namespace tmf.business.repositories
-{
+namespace tmf.web.Models
+{ 
     public class OrderRepository : IOrderRepository
     {
         tmfwebContext context = new tmfwebContext();
+
+        public void TransformOrderTo<T>(Guid idOrder)
+             where T : Order, new()
+        {
+            var order = this.Find(idOrder);
+
+            var newOrder = new T();
+
+            newOrder.Table = order.Table;
+
+            // soit
+            newOrder.Menus = order.Menus;
+
+            // peut etre
+            //newOrder.Menus = new List<Menu>();
+
+            // soit
+            //foreach (var menu in order.Menus)
+            //{
+            //    newOrder.Menus.Add(menu);
+            //}
+
+            newOrder.Restaurant = order.Restaurant;
+            newOrder.Waiter = order.Waiter;
+
+            this.InsertOrUpdate(newOrder);
+            this.Save();
+
+            this.Delete(idOrder);
+            this.Save();
+        }
 
         public IQueryable<Order> All
         {
@@ -30,7 +61,15 @@ namespace tmf.business.repositories
 
         public Order Find(System.Guid id)
         {
-            return context.Orders.Find(id);
+            var query = from order in context.Orders
+                        where order.Id == id
+                        select order;
+
+            query = query.Include(p => p.Menus);
+            query = query.Include(p => p.Restaurant);
+            query = query.Include(p => p.Waiter);
+
+            return query.FirstOrDefault();
         }
 
         public void InsertOrUpdate(Order order)
@@ -64,6 +103,7 @@ namespace tmf.business.repositories
 
     public interface IOrderRepository : IDisposable
     {
+        void TransformOrderTo<T>(Guid idOrder) where T : Order, new();
         IQueryable<Order> All { get; }
         IQueryable<Order> AllIncluding(params Expression<Func<Order, object>>[] includeProperties);
         Order Find(System.Guid id);

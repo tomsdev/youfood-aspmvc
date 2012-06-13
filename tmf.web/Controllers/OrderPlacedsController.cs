@@ -12,18 +12,21 @@ namespace tmf.web.Controllers
     {
 		private readonly IWaiterRepository waiterRepository;
 		private readonly IRestaurantRepository restaurantRepository;
-		private readonly IOrderPlacedRepository orderplacedRepository;
+        private readonly IOrderPlacedRepository orderplacedRepository;
+        private readonly IOrderRepository orderRepository;
 
 		// If you are using Dependency Injection, you can delete the following constructor
-        public OrderPlacedsController() : this(new WaiterRepository(), new RestaurantRepository(), new OrderPlacedRepository())
+        public OrderPlacedsController()
+            : this(new WaiterRepository(), new RestaurantRepository(), new OrderPlacedRepository(), new OrderRepository())
         {
         }
 
-        public OrderPlacedsController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderPlacedRepository orderplacedRepository)
+        public OrderPlacedsController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderPlacedRepository orderplacedRepository, IOrderRepository orderRepository)
         {
 			this.waiterRepository = waiterRepository;
 			this.restaurantRepository = restaurantRepository;
 			this.orderplacedRepository = orderplacedRepository;
+            this.orderRepository = orderRepository;
         }
 
         //
@@ -47,8 +50,8 @@ namespace tmf.web.Controllers
 
         public ActionResult Create()
         {
-			ViewBag.PossibleWaiters = waiterRepository.All;
-			ViewBag.PossibleRestaurants = restaurantRepository.All;
+            ViewBag.PossibleWaiters = waiterRepository.All;
+            ViewBag.PossibleRestaurants = restaurantRepository.All;
             return View();
         } 
 

@@ -141,18 +141,6 @@
     <Compile Include="Hubs\TmfHub.cs" />
     <Compile Include="Hubs\TmfHubActions.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\MenuRepository.cs" />
-    <Compile Include="Models\OrderCookedRepository.cs" />
-    <Compile Include="Models\OrderCookingRepository.cs" />
-    <Compile Include="Models\OrderCreatedRepository.cs" />
-    <Compile Include="Models\OrderPaidRepository.cs" />
-    <Compile Include="Models\OrderPlacedRepository.cs" />
-    <Compile Include="Models\OrderRepository.cs" />
-    <Compile Include="Models\OrderServedRepository.cs" />
-    <Compile Include="Models\ProductTypeRepository.cs" />
-    <Compile Include="Models\RestaurantRepository.cs" />
-    <Compile Include="Models\WaiterRepository.cs" />
-    <Compile Include="Models\ZoneRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

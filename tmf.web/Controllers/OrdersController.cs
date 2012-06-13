@@ -27,6 +27,16 @@ namespace tmf.web.Controllers
         }
 
         //
+        // GET: /OrderPlaceds/CreateFromOrder
+
+        public ActionResult CreateFromOrder(Guid idOrder, string controllerName)
+        {
+            orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
+
+            return RedirectToAction("Index", controllerName);
+        }
+
+        //
         // GET: /Orders/
 
         public ViewResult Index()

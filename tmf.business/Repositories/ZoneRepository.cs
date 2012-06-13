@@ -6,8 +6,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
 using tmf.entities;
+using tmf.business;
 
-namespace tmf.business.repositories
+namespace tmf.web.Models
 { 
     public class ZoneRepository : IZoneRepository
     {
