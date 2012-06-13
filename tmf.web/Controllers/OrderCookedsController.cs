@@ -8,42 +8,42 @@ using tmf.web.Models;
 
 namespace tmf.web.Controllers
 {   
-    public class OrdersController : Controller
+    public class OrderCookedsController : Controller
     {
 		private readonly IWaiterRepository waiterRepository;
 		private readonly IRestaurantRepository restaurantRepository;
-		private readonly IOrderRepository orderRepository;
+		private readonly IOrderCookedRepository ordercookedRepository;
 
 		// If you are using Dependency Injection, you can delete the following constructor
-        public OrdersController() : this(new WaiterRepository(), new RestaurantRepository(), new OrderRepository())
+        public OrderCookedsController() : this(new WaiterRepository(), new RestaurantRepository(), new OrderCookedRepository())
         {
         }
 
-        public OrdersController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderRepository orderRepository)
+        public OrderCookedsController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderCookedRepository ordercookedRepository)
         {
 			this.waiterRepository = waiterRepository;
 			this.restaurantRepository = restaurantRepository;
-			this.orderRepository = orderRepository;
+			this.ordercookedRepository = ordercookedRepository;
         }
 
         //
-        // GET: /Orders/
+        // GET: /OrderCookeds/
 
         public ViewResult Index()
         {
-            return View(orderRepository.AllIncluding(order => order.Waiter, order => order.Restaurant, order => order.Menus));
+            return View(ordercookedRepository.AllIncluding(ordercooked => ordercooked.Waiter, ordercooked => ordercooked.Restaurant, ordercooked => ordercooked.Menus));
         }
 
         //
-        // GET: /Orders/Details/5
+        // GET: /OrderCookeds/Details/5
 
         public ViewResult Details(System.Guid id)
         {
-            return View(orderRepository.Find(id));
+            return View(ordercookedRepository.Find(id));
         }
 
         //
-        // GET: /Orders/Create
+        // GET: /OrderCookeds/Create
 
         public ActionResult Create()
         {
@@ -53,14 +53,14 @@ namespace tmf.web.Controllers
         } 
 
         //
-        // POST: /Orders/Create
+        // POST: /OrderCookeds/Create
 
         [HttpPost]
-        public ActionResult Create(Order order)
+        public ActionResult Create(OrderCooked ordercooked)
         {
             if (ModelState.IsValid) {
-                orderRepository.InsertOrUpdate(order);
-                orderRepository.Save();
+                ordercookedRepository.InsertOrUpdate(ordercooked);
+                ordercookedRepository.Save();
                 return RedirectToAction("Index");
             } else {
 				ViewBag.PossibleWaiters = waiterRepository.All;
@@ -70,24 +70,24 @@ namespace tmf.web.Controllers
         }
         
         //
-        // GET: /Orders/Edit/5
+        // GET: /OrderCookeds/Edit/5
  
         public ActionResult Edit(System.Guid id)
         {
 			ViewBag.PossibleWaiters = waiterRepository.All;
 			ViewBag.PossibleRestaurants = restaurantRepository.All;
-             return View(orderRepository.Find(id));
+             return View(ordercookedRepository.Find(id));
         }
 
         //
-        // POST: /Orders/Edit/5
+        // POST: /OrderCookeds/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Order order)
+        public ActionResult Edit(OrderCooked ordercooked)
         {
             if (ModelState.IsValid) {
-                orderRepository.InsertOrUpdate(order);
-                orderRepository.Save();
+                ordercookedRepository.InsertOrUpdate(ordercooked);
+                ordercookedRepository.Save();
                 return RedirectToAction("Index");
             } else {
 				ViewBag.PossibleWaiters = waiterRepository.All;
@@ -97,21 +97,21 @@ namespace tmf.web.Controllers
         }
 
         //
-        // GET: /Orders/Delete/5
+        // GET: /OrderCookeds/Delete/5
  
         public ActionResult Delete(System.Guid id)
         {
-            return View(orderRepository.Find(id));
+            return View(ordercookedRepository.Find(id));
         }
 
         //
-        // POST: /Orders/Delete/5
+        // POST: /OrderCookeds/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(System.Guid id)
         {
-            orderRepository.Delete(id);
-            orderRepository.Save();
+            ordercookedRepository.Delete(id);
+            ordercookedRepository.Save();
 
             return RedirectToAction("Index");
         }
@@ -121,7 +121,7 @@ namespace tmf.web.Controllers
             if (disposing) {
                 waiterRepository.Dispose();
                 restaurantRepository.Dispose();
-                orderRepository.Dispose();
+                ordercookedRepository.Dispose();
             }
             base.Dispose(disposing);
         }

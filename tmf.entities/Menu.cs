@@ -22,6 +22,9 @@ namespace tmf.entities
         [Required]
         public string Description { get; set; }
 
+        [Required]
+        public double Prix { get; set; }
+
         // Relations
 
         [HiddenInput(DisplayValue = false)]

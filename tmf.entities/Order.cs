@@ -22,36 +22,6 @@ namespace tmf.entities
         [Required]
         public int Table { get; set; }
 
-        ///// <summary>
-        ///// Current state of the order
-        ///// </summary>
-        //[Required]
-        //public int State { get; set; }
-
-        ///// <summary>
-        ///// Current state of the order
-        ///// </summary>
-        //[NotMapped]
-        //[ScaffoldColumn(false)]
-        //public OrderState StateProp
-        //{
-        //    get {
-        //        return (OrderState)State;
-        //    }
-        //    set {
-
-        //    }
-        //}
-
-        [NotMapped]
-        [Required]
-        //[ScaffoldColumn(false)]
-        public OrderState State { get; set; }
-
-        [Required]
-        [ScaffoldColumn(false)]
-        public int StateValue { get { return (int)State; } set { State = (OrderState)value; } }
-
         // Relations
 
         [HiddenInput(DisplayValue = false)]
@@ -75,8 +45,37 @@ namespace tmf.entities
         public override string ToString()
         {
             //ex: Table 3 (Paid)
-            return "Table " + Table + " (" + State.ToString() + ")";
+            return "Table " + Table + " (created)";
         }
     }
 
+    public class OrderCreated : Order
+    {
+
+    }
+
+    public class OrderPlaced : Order
+    {
+
+    }
+
+    public class OrderCooking : Order
+    {
+
+    }
+
+    public class OrderCooked : Order
+    {
+
+    }
+
+    public class OrderServed : Order
+    {
+
+    }
+
+    public class OrderPaid : Order
+    {
+
+    }
 }

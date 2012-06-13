@@ -1,4 +1,4 @@
-@model IEnumerable<tmf.entities.Menu>
+@model IEnumerable<tmf.entities.OrderPaid>
 
 @{
     ViewBag.Title = "Index";
@@ -13,16 +13,16 @@
     <tr>
         <th></th>
         <th>
-            Title
+            Table
         </th>
         <th>
-            Description
+            Waiter
         </th>
         <th>
-            Prix
+            Restaurant
         </th>
         <th>
-            ProductType
+            Menus
         </th>
     </tr>
 
@@ -34,16 +34,16 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
         <td>
-			@item.Title
+			@item.Table
         </td>
         <td>
-			@item.Description
+			@Html.DisplayTextFor(_ => item.Waiter).ToString()
         </td>
         <td>
-			@String.Format("{0:F}", item.Prix)
+			@(item.Restaurant == null ? "None" : item.Restaurant.Name)
         </td>
         <td>
-			@Html.DisplayTextFor(_ => item.ProductType).ToString()
+			@(item.Menus == null ? "None" : item.Menus.Count.ToString())
         </td>
     </tr>
 }

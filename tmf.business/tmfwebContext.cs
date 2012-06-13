@@ -31,6 +31,18 @@ namespace tmf.business
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<OrderCreated> OrderCreateds { get; set; }
+
+        public DbSet<OrderPlaced> OrderPlaceds { get; set; }
+
+        public DbSet<OrderCooking> OrderCookings { get; set; }
+
+        public DbSet<OrderCooked> OrderCookeds { get; set; }
+
+        public DbSet<OrderServed> OrderServeds { get; set; }
+
+        public DbSet<OrderPaid> OrderPaids { get; set; }
+
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{
         //    // Configure Code First to ignore PluralizingTableName convention

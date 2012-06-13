@@ -1,0 +1,34 @@
+@model tmf.entities.OrderCooked
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Table)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Table)
+    @Html.ValidationMessageFor(model => model.Table)
+</div>
+
+<div class="editor-label">
+    Waiter
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.WaiterId, ((IEnumerable<tmf.entities.Waiter>)ViewBag.PossibleWaiters).Select(option => new SelectListItem {
+        Text = Html.DisplayTextFor(_ => option).ToString(), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.WaiterId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.WaiterId)
+</div>
+<div class="editor-label">
+    Restaurant
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.RestaurantId, ((IEnumerable<tmf.entities.Restaurant>)ViewBag.PossibleRestaurants).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.RestaurantId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.RestaurantId)
+</div>
