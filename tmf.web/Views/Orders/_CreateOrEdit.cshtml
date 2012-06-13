@@ -9,18 +9,18 @@
     @Html.EditorFor(model => model.Table)
     @Html.ValidationMessageFor(model => model.Table)
 </div>
-<!--
+
 <div class="editor-label">
     Waiter
 </div>
 <div class="editor-field">
-    @*Html.DropDownListFor(model => model.WaiterId, ((IEnumerable<tmf.entities.Waiter>)ViewBag.PossibleWaiters).Select(option => new SelectListItem {
+    @Html.DropDownListFor(model => model.WaiterId, ((IEnumerable<tmf.entities.Waiter>)ViewBag.PossibleWaiters).Select(option => new SelectListItem {
         Text = Html.DisplayTextFor(_ => option).ToString(), 
         Value = option.Id.ToString(),
         Selected = (Model != null) && (option.Id == Model.WaiterId)
     }), "Choose...")
-    @Html.ValidationMessageFor(model => model.WaiterId)*@
-</div> -->
+    @Html.ValidationMessageFor(model => model.WaiterId)
+</div>
 <div class="editor-label">
     Restaurant
 </div>

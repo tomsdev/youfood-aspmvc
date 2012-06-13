@@ -17,14 +17,10 @@
 
     <div class="display-label">ProductType</div>
     <div class="display-field">@Html.DisplayTextFor(_ => Model.ProductType).ToString()</div>
-   <!-- bordel pourquoi il y a rien qui s'affiche ici -->
-    
-    
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("command", "Create", "Orders", new {idMenu = Model.Id}, null)
+    @Html.ActionLink("Back to List", "Index")
 </p>
 
 

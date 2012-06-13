@@ -36,7 +36,7 @@ namespace tmf.web.Controllers
         // GET: /Menus/Details/5
 
         public ViewResult Details(System.Guid id)
-        { 
+        {
             return View(menuRepository.Find(id));
         }
 
