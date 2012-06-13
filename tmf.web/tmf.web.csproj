@@ -126,6 +126,7 @@
     <Compile Include="Controllers\OrderCookedsController.cs" />
     <Compile Include="Controllers\OrderCookingsController.cs" />
     <Compile Include="Controllers\OrderCreatedsController.cs" />
+    <Compile Include="Controllers\OrderCreatingsController.cs" />
     <Compile Include="Controllers\OrderPaidsController.cs" />
     <Compile Include="Controllers\OrderPlacedsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -470,6 +471,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\OrderPaids\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OrderCreatings\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OrderCreatings\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OrderCreatings\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OrderCreatings\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OrderCreatings\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OrderCreatings\_CreateOrEdit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

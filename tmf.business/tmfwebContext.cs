@@ -31,6 +31,8 @@ namespace tmf.business
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<OrderCreating> OrderCreatings { get; set; }
+
         public DbSet<OrderCreated> OrderCreateds { get; set; }
 
         public DbSet<OrderPlaced> OrderPlaceds { get; set; }

@@ -49,6 +49,11 @@ namespace tmf.entities
         }
     }
 
+    public class OrderCreating : Order
+    {
+
+    }
+
     public class OrderCreated : Order
     {
 

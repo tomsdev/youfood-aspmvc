@@ -53,6 +53,7 @@
     <Compile Include="Repositories\OrderCookedRepository.cs" />
     <Compile Include="Repositories\OrderCookingRepository.cs" />
     <Compile Include="Repositories\OrderCreatedRepository.cs" />
+    <Compile Include="Repositories\OrderCreatingRepository.cs" />
     <Compile Include="Repositories\OrderPaidRepository.cs" />
     <Compile Include="Repositories\OrderPlacedRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
