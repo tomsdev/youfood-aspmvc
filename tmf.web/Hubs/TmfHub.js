@@ -5,6 +5,11 @@
 $(function () {
     'use strict';
 
+    //test load partial view
+    $('#partialtest').load("/Home/Result");
+
+    //
+
     var tmfHub = $.connection.tmfHub;
 
     function makeItem(item) {

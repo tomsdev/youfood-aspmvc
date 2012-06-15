@@ -14,7 +14,7 @@ namespace tmf.web.Models
     {
         tmfwebContext context = new tmfwebContext();
 
-        public void TransformOrderTo<T>(Guid idOrder)
+        public Order TransformOrderTo<T>(Guid idOrder)
              where T : Order, new()
         {
             var order = this.Find(idOrder);
@@ -43,6 +43,8 @@ namespace tmf.web.Models
 
             this.Delete(idOrder);
             this.Save();
+
+            return newOrder;
         }
 
         public IQueryable<Order> All
@@ -103,7 +105,7 @@ namespace tmf.web.Models
 
     public interface IOrderRepository : IDisposable
     {
-        void TransformOrderTo<T>(Guid idOrder) where T : Order, new();
+        Order TransformOrderTo<T>(Guid idOrder) where T : Order, new();
         IQueryable<Order> All { get; }
         IQueryable<Order> AllIncluding(params Expression<Func<Order, object>>[] includeProperties);
         Order Find(System.Guid id);

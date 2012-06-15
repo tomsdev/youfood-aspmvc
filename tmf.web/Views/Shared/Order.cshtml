@@ -1,0 +1,35 @@
+﻿@model tmf.entities.Order
+
+@*<div>
+    <span class="display-label">
+        New Order at table 
+    </span>
+    <span class="display-field">
+        @Html.DisplayFor(model => model.Table)
+    </span>
+    <span>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.Id })
+    </span>
+</div>*@
+
+<tr>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+        @Html.ActionLink("Details", "Details", new { id=Model.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id=Model.Id })
+    </td>
+    <td>
+		@Model.Table
+    </td>
+    <td>
+		@Html.DisplayTextFor(_ => Model.Waiter).ToString()
+    </td>
+    <td>
+		@(Model.Restaurant == null ? "None" : Model.Restaurant.Name)
+    </td>
+    <td>
+		@(Model.Menus == null ? "None" : Model.Menus.Count.ToString())
+    </td>
+</tr>
+
+

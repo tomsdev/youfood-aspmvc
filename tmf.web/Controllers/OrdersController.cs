@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SignalR;
+using SignalR.Hubs;
 using tmf.entities;
+using tmf.web.Hubs;
 using tmf.web.Models;
 
 namespace tmf.web.Controllers
@@ -26,12 +29,22 @@ namespace tmf.web.Controllers
 			this.orderRepository = orderRepository;
         }
 
+        public PartialViewResult GetOrder(Guid id)
+        {
+            var order = orderRepository.Find(id);
+            //var order = orderRepository.All.First();
+
+            return PartialView("Order", order);
+        }
+
         //
         // GET: /OrderPlaceds/CreateFromOrder
 
         public ActionResult CreateFromOrder(Guid idOrder, string controllerName)
         {
-            orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
+            var order = orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
+
+            TmfHubActions.AddOrder(order.Id, "placed");
 
             return RedirectToAction("Index", controllerName);
         }

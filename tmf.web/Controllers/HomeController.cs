@@ -20,6 +20,12 @@ namespace tmf.web.Controllers
             return View();
         }
 
+        public PartialViewResult Result()
+        {
+            return PartialView();
+        }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your quintessential app description page.";
