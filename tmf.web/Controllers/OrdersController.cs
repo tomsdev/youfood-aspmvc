@@ -40,11 +40,21 @@ namespace tmf.web.Controllers
         //
         // GET: /OrderPlaceds/CreateFromOrder
 
-        public ActionResult CreateFromOrder(Guid idOrder, string controllerName)
+        public ActionResult CreateFromOrder(Guid idOrder, string controllerName, string state)
         {
-            var order = orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
+            Order order = null;
+            if (state == "placed")
+            {
+                order = orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
+            }
+            else if (state == "cooked")
+            {
+                order = orderRepository.TransformOrderTo<OrderCooked>(idOrder);
+            }
+            //TODO: autre states...
 
-            TmfHubActions.AddOrder(order.Id, "placed");
+//            TmfHubActions.AddOrder(order.Id, "placed");
+            TmfHubActions.AddOrder(order.Id, state);
 
             return RedirectToAction("Index", controllerName);
         }

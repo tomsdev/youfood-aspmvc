@@ -29,7 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Placed", "CreateFromOrder", "Orders", new { idOrder=item.Id, controllerName="OrderPlaceds" }, null) |
+            @Html.ActionLink("Placed", "CreateFromOrder", "Orders", new { idOrder=item.Id, controllerName="OrderPlaceds", state="placed" }, null) |
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })

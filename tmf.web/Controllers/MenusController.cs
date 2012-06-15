@@ -50,13 +50,8 @@ namespace tmf.web.Controllers
             {
                 var menu = menuRepository.Find(orderOneMenuViewModel.IdMenuSelected);
                 var order = orderRepository.Find(orderOneMenuViewModel.IdOrder);
-                //many to many pose probleme
-                //a voir pourquoi il recrée un menu au lieu de faire une foreign key; il s'agit d'une collection de menu le probleme viens peut etre de la
-
-                //menuRepository.AddMenuToOrder(order, menu);
-                order.Menus.Add(menu);
-                
-                orderRepository.Save();
+                //ajoute menu depuis le bon contexte pour eviter duplication
+                menuRepository.AddMenuToOrder(order, menu);
 
                 if (orderOneMenuViewModel.IsOrderTerminated)
                 {
