@@ -63,7 +63,7 @@ namespace tmf.web.Controllers
                 ordercreatingRepository.Save();
 
                 // redirige sur l'ajout de menu pour un order:
-                return RedirectToAction("Index", "Menus");
+                return RedirectToAction("OrderOneMenu", "Menus", new {idOrder = ordercreating.Id});
             } else {
 				ViewBag.PossibleWaiters = waiterRepository.All;
 				ViewBag.PossibleRestaurants = restaurantRepository.All;

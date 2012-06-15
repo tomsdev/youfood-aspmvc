@@ -45,11 +45,13 @@ namespace tmf.business
 
         public DbSet<OrderPaid> OrderPaids { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    // Configure Code First to ignore PluralizingTableName convention
-        //    // If you keep this convention then the generated tables will have pluralized names.
-        //    modelBuilder.Entity<Restaurant>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // Configure Code First to ignore PluralizingTableName convention
+            // If you keep this convention then the generated tables will have pluralized names.
+            //modelBuilder.Entity<Restaurant>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<Order>().HasMany(p => p.Menus).WithMany();
+        }
     }
 }

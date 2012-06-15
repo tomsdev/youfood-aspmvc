@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using tmf.entities;
 using tmf.web.Models;
+using tmf.web.ViewModels;
 
 namespace tmf.web.Controllers
 {   
@@ -12,16 +13,18 @@ namespace tmf.web.Controllers
     {
 		private readonly IProductTypeRepository producttypeRepository;
 		private readonly IMenuRepository menuRepository;
+        private readonly IOrderRepository orderRepository;
 
 		// If you are using Dependency Injection, you can delete the following constructor
-        public MenusController() : this(new ProductTypeRepository(), new MenuRepository())
+        public MenusController() : this(new ProductTypeRepository(), new MenuRepository(), new OrderRepository())
         {
         }
 
-        public MenusController(IProductTypeRepository producttypeRepository, IMenuRepository menuRepository)
+        public MenusController(IProductTypeRepository producttypeRepository, IMenuRepository menuRepository, IOrderRepository orderRepository)
         {
 			this.producttypeRepository = producttypeRepository;
 			this.menuRepository = menuRepository;
+            this.orderRepository = orderRepository;
         }
 
         //
@@ -30,6 +33,45 @@ namespace tmf.web.Controllers
         public ViewResult Index()
         {
             return View(menuRepository.AllIncluding(menu => menu.ProductType));
+        }
+
+        public ViewResult OrderOneMenu(System.Guid idOrder)
+        {
+            var vm = new OrderOneMenuViewModel();
+            vm.Menus = menuRepository.AllIncluding(menu => menu.ProductType);
+            vm.IdOrder = idOrder;
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult OrderOneMenu(OrderOneMenuViewModel orderOneMenuViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var menu = menuRepository.Find(orderOneMenuViewModel.IdMenuSelected);
+                var order = orderRepository.Find(orderOneMenuViewModel.IdOrder);
+                //many to many pose probleme
+                //a voir pourquoi il recrée un menu au lieu de faire une foreign key; il s'agit d'une collection de menu le probleme viens peut etre de la
+
+                //menuRepository.AddMenuToOrder(order, menu);
+                order.Menus.Add(menu);
+                
+                orderRepository.Save();
+
+                if (orderOneMenuViewModel.IsOrderTerminated)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("OrderOneMenu", new { orderOneMenuViewModel.IdOrder });
+                }
+            }
+            else
+            {
+                ViewBag.PossibleProductTypes = producttypeRepository.All;
+                return View();
+            }
         }
 
         //

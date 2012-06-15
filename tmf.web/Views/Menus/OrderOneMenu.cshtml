@@ -1,0 +1,84 @@
+﻿@model tmf.web.ViewModels.OrderOneMenuViewModel
+
+@{
+    ViewBag.Title = "OrderOneMenu";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Menu</legend>
+
+        @Html.HiddenFor(p => p.IdOrder)
+
+		<div class="editor-label">
+            Menu
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.IdMenuSelected, (Model.Menus).Select(option => new SelectListItem {
+                Text = Html.DisplayTextFor(_ => option).ToString(), 
+                Value = option.Id.ToString(),
+                Selected = false
+            }), "Choose...")
+            @Html.ValidationMessageFor(model => model.IdMenuSelected)
+        </div>
+
+        <div class="editor-label">
+            Order terminated?
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.IsOrderTerminated)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Prix
+        </th>
+        <th>
+            ProductType
+        </th>
+    </tr>
+
+@foreach (var item in Model.Menus) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+			@item.Title
+        </td>
+        <td>
+			@item.Description
+        </td>
+        <td>
+			@String.Format("{0:F}", item.Prix)
+        </td>
+        <td>
+			@Html.DisplayTextFor(_ => item.ProductType).ToString()
+        </td>
+    </tr>
+}
+
+</table>
+

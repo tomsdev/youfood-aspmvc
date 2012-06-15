@@ -14,6 +14,17 @@ namespace tmf.web.Models
     {
         tmfwebContext context = new tmfwebContext();
 
+        public Order AddMenuToOrder(Order order, Menu menu)
+        {
+            var ctxOrder = context.Orders.Find(order.Id);
+            ctxOrder.Menus.Add(menu);
+            var entry = context.Entry(menu).State;
+            context.Entry(menu).State = EntityState.Unchanged;
+            context.SaveChanges();
+
+            return ctxOrder;
+        }
+
         public IQueryable<Menu> All
         {
             get { return context.Menus; }
@@ -70,5 +81,7 @@ namespace tmf.web.Models
         void InsertOrUpdate(Menu menu);
         void Delete(System.Guid id);
         void Save();
+        Order AddMenuToOrder(Order order, Menu menu);
+
     }
 }

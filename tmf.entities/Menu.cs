@@ -27,6 +27,7 @@ namespace tmf.entities
 
         // Relations
 
+
         [HiddenInput(DisplayValue = false)]
         public Guid ProductTypeId { get; set; }
 
