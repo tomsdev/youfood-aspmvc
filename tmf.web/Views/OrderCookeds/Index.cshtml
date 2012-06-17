@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table id="ordersCooked">
     <tr>
         <th></th>
         <th>
@@ -48,6 +48,10 @@
     </tr>
 }
 
+
 </table>
 
+<script type="text/javascript">
+    connectHub("cooked", "ordersCooked");
+</script>
 

@@ -18,8 +18,6 @@ namespace tmf.web.Models
         {
             var ctxOrder = context.Orders.Find(order.Id);
             ctxOrder.Menus.Add(menu);
-            var entry = context.Entry(menu).State;
-            context.Entry(menu).State = EntityState.Unchanged;
             context.SaveChanges();
 
             return ctxOrder;

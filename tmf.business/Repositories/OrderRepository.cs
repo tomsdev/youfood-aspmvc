@@ -23,17 +23,18 @@ namespace tmf.web.Models
 
             newOrder.Table = order.Table;
 
-            // soit
-            newOrder.Menus = order.Menus;
+            // soit; supprime les orders apres la supression de l'ancien state (ne pas utiliser et a suppr a la fin du projet)
+            //newOrder.Menus = order.Menus;
 
-            // peut etre
-            //newOrder.Menus = new List<Menu>();
+            
+            // pour empecher la nullexception
+            newOrder.Menus = new List<Menu>();
 
-            // soit
-            //foreach (var menu in order.Menus)
-            //{
-            //    newOrder.Menus.Add(menu);
-            //}
+            // on y ajoute les nouveau menu, avec de nouvelles ID pour ne pas subir de supression lors du changement d'etat
+            foreach (var menu in order.Menus)
+            {
+                newOrder.Menus.Add(menu);
+            }
 
             newOrder.Restaurant = order.Restaurant;
             newOrder.Waiter = order.Waiter;

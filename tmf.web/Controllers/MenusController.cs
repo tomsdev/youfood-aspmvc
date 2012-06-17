@@ -55,10 +55,11 @@ namespace tmf.web.Controllers
 
                 if (orderOneMenuViewModel.IsOrderTerminated)
                 {
-                    return RedirectToAction("Index");
+                    orderRepository.TransformOrderTo<OrderCreated>(orderOneMenuViewModel.IdOrder);
+                    return RedirectToAction("Index", "OrderCreateds"); //a changer envoyer vers page paiement
                 }
                 else
-                {
+                {   //n'ajoute qu'un menu du meme type pas forcement un probleme mais a voir
                     return RedirectToAction("OrderOneMenu", new { orderOneMenuViewModel.IdOrder });
                 }
             }

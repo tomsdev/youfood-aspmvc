@@ -47,6 +47,10 @@ namespace tmf.web.Controllers
             {
                 order = orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
             }
+            else if (state == "cooking")
+            {
+                order = orderRepository.TransformOrderTo<OrderCooking>(idOrder);
+            }
             else if (state == "cooked")
             {
                 order = orderRepository.TransformOrderTo<OrderCooked>(idOrder);

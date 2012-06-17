@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table id="ordersCooking">
     <tr>
         <th></th>
         <th>
@@ -29,6 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.ActionLink("terminated", "CreateFromOrder", "Orders", new {idOrder=item.Id, controllerName="OrderCookeds",  state="cooked" }, null)
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
@@ -50,4 +51,7 @@
 
 </table>
 
+<script type="text/javascript">
+    connectHub("cooking", "ordersCooking");
+</script>
 
