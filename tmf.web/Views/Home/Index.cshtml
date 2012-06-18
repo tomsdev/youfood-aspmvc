@@ -1,16 +1,26 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model tmf.web.ViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = "Acceuil";
 }
 
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Choose your Restaurant..</legend>
 
-@*<ul data-role="listview" data-inset="true">
-    <li data-role="list-divider">Navigation</li>
-    <li>@Html.ActionLink("About", "About", "Home")</li>
-    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-    <li>@Html.ActionLink("Menus", "Index", "Menus")</li>
-    <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
-    <li>@Html.ActionLink("ProductTypes", "Index", "ProductTypes")</li>
-    <li>@Html.ActionLink("Restaurants", "Index", "Restaurants")</li>
-    <li>@Html.ActionLink("Waiters", "Index", "Waiters")</li>
-    <li>@Html.ActionLink("Zones", "Index", "Zones")</li>
-</ul>*@
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.RestaurantId, ((IEnumerable<tmf.entities.Restaurant>)ViewBag.PossibleRestaurants).Select(option => new SelectListItem {
+                Text = (option == null ? "None" : option.Name), 
+                Value = option.Id.ToString(),
+                Selected = (Model != null) && (option.Id == Model.RestaurantId)
+            }), "Choose...")
+            @Html.ValidationMessageFor(model => model.RestaurantId)
+        </div>
+
+        <p>
+            <input type="submit" value="Select" />
+        </p>
+    </fieldset>
+}
+
