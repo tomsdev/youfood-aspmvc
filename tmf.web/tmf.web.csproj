@@ -155,6 +155,7 @@
     <Content Include="Content\Images\icons-18-white.png" />
     <Content Include="Content\Images\icons-36-black.png" />
     <Content Include="Content\Images\icons-36-white.png" />
+    <Content Include="Content\Images\icoResto1.jpg" />
     <Content Include="Content\jquery.mobile-1.0b2.css" />
     <Content Include="Content\jquery.mobile-1.0b2.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

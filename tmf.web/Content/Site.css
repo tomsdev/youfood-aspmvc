@@ -47,7 +47,7 @@
 /* ****** MY CSS ****** */
 body
 {
-    /* background-color:#e9e9e9; */
+    /*background-color:#e9e9e9;*/
     font-family:'Segoe UI', 'Trebuchet MS';
 }
 
@@ -56,24 +56,52 @@ body
     
 }
 
+.divSeparator
+{
+    text-align:center;
+    height:1px;
+    background-color:#d9d9d9;
+}
+
 #logon
 {
-    text-align:right;
+    text-align:center;
+    padding-top:20px;
+    height:40px;
+    width:150px;
+    background-color:#d9d9d9;
+    float:right;
 }
 
 #logon a
 {
     text-decoration: none;
-    color: #a3a3a3;
+    color: #fff;
     font-style: italic;
 }
 
 #title
 {
-    text-align:center;
+    /*text-align:center;
     background-color: #a3a3a3;
     color: #fff;
-    font-weight:300;
+    font-weight:300;*/
+    height:120px;
+    padding-top:20px;
+    color:#808080;
+    font-size:xx-large;
+}
+
+#iconResto
+{
+    float:left;
+    margin-right:30px;
+    margin-left:100px;
+}
+
+ul
+{
+   /* margin-top:70px;*/
 }
 
 li
@@ -139,11 +167,8 @@ table th
 table td
 {
     background-color:#fff;
-    /*border:1px solid #c6c6c6;*/
     color:#8e8e8e;
-    padding:10px 20px 10px 0px;
-    /*border-bottom:1px solid #c6c6c6;*/
-    
+    padding:10px 20px 10px 0px;    
 }
 
 
@@ -152,4 +177,26 @@ table a
     text-decoration: none;
     color:#c6c6c6;
     font-style:italic;
+}
+
+#contact
+{
+    width:350px;
+    height:70px;
+    color:#fff;
+    float:left;
+    background-color:#808080;
+    font-weight:400;
+    text-align:center;
+    padding-top:50px;
+    margin-top:20px;
+    margin-bottom:40px;
+    margin-left:50px;
+}
+
+#contactTable
+{
+    float:left;
+    margin-left:70px;
+    margin-top:30px;
 }
