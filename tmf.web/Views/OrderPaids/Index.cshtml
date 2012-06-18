@@ -27,7 +27,9 @@
     </tr>
 
 @foreach (var item in Model) {
-    @Html.Partial("Order", item)
+    <tr>
+        @Html.Partial("Order", item)
+    </tr>
 }
 
 </table>

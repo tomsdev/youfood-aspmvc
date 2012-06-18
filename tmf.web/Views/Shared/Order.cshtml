@@ -1,33 +1,21 @@
 ﻿@model tmf.entities.Order
 
-@*<div>
-    <span class="display-label">
-        New Order at table 
-    </span>
-    <span class="display-field">
-        @Html.DisplayFor(model => model.Table)
-    </span>
-    <span>
-        @Html.ActionLink("Edit", "Edit", new { id=Model.Id })
-    </span>
-</div>*@
 
-<tr>
     <td>
         @if(Model is tmf.entities.OrderCreated){
-            @Html.ActionLink("placed | ", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderPlaceds",  state="placed" }, null)            
+            @Html.ActionLink("placed", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderPlaceds",  state="placed" }, null)            
         }
         else if(Model is tmf.entities.OrderPlaced){
-            @Html.ActionLink("take command | ", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderCookings",  state="cooking" }, null)
+            @Html.ActionLink("take command", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderCookings",  state="cooking" }, null)
         }
         else if(Model is tmf.entities.OrderCooking){
-            @Html.ActionLink("terminated | ", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderCookeds",  state="cooked" }, null)
+            @Html.ActionLink("terminated", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderCookeds",  state="cooked" }, null)
         }
         else if(Model is tmf.entities.OrderCooked){
-            @Html.ActionLink("served | ", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderServeds",  state="served" }, null)
+            @Html.ActionLink("served", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderServeds",  state="served" }, null)
         }
         else if(Model is tmf.entities.OrderServed){
-            @Html.ActionLink("paid | ", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderPaids",  state="paid" }, null)
+            @Html.ActionLink("paid", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderPaids",  state="paid" }, null)
         }
         @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
         @Html.ActionLink("Details", "Details", new { id=Model.Id }) |
@@ -45,6 +33,5 @@
     <td>
 		@(Model.Menus == null ? "None" : Model.Menus.Count.ToString())
     </td>
-</tr>
 
 

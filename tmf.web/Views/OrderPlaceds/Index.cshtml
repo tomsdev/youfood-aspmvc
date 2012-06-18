@@ -30,8 +30,10 @@
         </th>
     </tr>
     
-@foreach (var item in Model) {    
-    @Html.Partial("Order", item)
+@foreach (var item in Model) {  
+    <tr>  
+        @Html.Partial("Order", item)
+    </tr>
 }
 
 </table>

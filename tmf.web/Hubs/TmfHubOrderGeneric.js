@@ -9,7 +9,7 @@ function connectHub(group, elementId) {
     function makeOrder(id) {
         /// <returns type="jQuery" />
         var el;
-        el = $("<div />").load("/Orders/GetOrder/" + id);
+        el = $("<tr />").load("/Orders/GetOrder/" + id);
         
         //el
         //    .css({
@@ -21,13 +21,13 @@ function connectHub(group, elementId) {
         //    .attr("id", "el-" + item.ID)
         //    .data("itemId", item.ID)
         //    .append("<div class='user-info' id='u-" + item.ID + "'>" +  item.Title + (tmfHub.user.Name === item.ChangedBy.Name ? "" : " changed by " + item.ChangedBy.Name) + "</div>");
-        return el.unwrap();
+        return el;
     }
 
     tmfHub.orderAdded = function (id) {
         makeOrder(id)
             /*.hide()*/
-            .appendTo("#" + elementId);
+            .appendTo("#" + elementId + " > tbody");
             //.fadeIn();
     };
 

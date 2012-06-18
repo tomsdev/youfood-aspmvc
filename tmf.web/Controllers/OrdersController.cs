@@ -43,7 +43,11 @@ namespace tmf.web.Controllers
         public ActionResult CreateFromOrder(Guid idOrder, string controllerName, string state)
         {
             Order order = null;
-            if (state == "placed")
+            if (state == "created")
+            {
+                order = orderRepository.TransformOrderTo<OrderCreated>(idOrder);
+            }
+            else if (state == "placed")
             {
                 order = orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
             }
@@ -64,8 +68,6 @@ namespace tmf.web.Controllers
                 order = orderRepository.TransformOrderTo<OrderPaid>(idOrder);
             }
             
-
-//            TmfHubActions.AddOrder(order.Id, "placed");
             TmfHubActions.AddOrder(order.Id, state);
 
             return RedirectToAction("Index", controllerName);
