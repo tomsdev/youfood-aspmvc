@@ -1,0 +1,82 @@
+﻿@model tmf.web.ViewModels.OrderFilterViewModel
+
+@{
+    ViewBag.Title = "Filter";
+}
+
+<h2>Filter</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>OrderPaid filter</legend>
+
+		<div class="editor-label">
+            Restaurant
+        </div>
+        <div class="editor-field">
+           @Html.DropDownListFor(model => model.RestaurantId, ((IEnumerable<tmf.entities.Restaurant>)ViewBag.PossibleRestaurants).Select(option => new SelectListItem {
+                Text = (option == null ? "None" : option.Name), 
+                Value = option.Id.ToString(),
+                Selected = (Model != null) && (option.Id == Model.RestaurantId)
+            }), "Choose...")
+            @Html.ValidationMessageFor(model => model.RestaurantId)
+        </div>
+
+        <div class="editor-label">
+            Product type
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ProductTypeId, ((IEnumerable<tmf.entities.ProductType>)ViewBag.PossibleProductTypes).Select(option => new SelectListItem {
+                Text = Html.DisplayTextFor(_ => option).ToString(), 
+                Value = option.Id.ToString(),
+                Selected = (Model != null) && (option.Id == Model.ProductTypeId)
+            }), "Choose...")
+            @Html.ValidationMessageFor(model => model.ProductTypeId)
+        </div>
+
+        <p>
+            <input type="submit" value="Filter" />
+        </p>
+    </fieldset>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+       <th>
+            Table
+        </th>
+        <th>
+            Waiter
+        </th>
+        <th>
+            Restaurant
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+
+@foreach (var item in Model.Orders) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaiterId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

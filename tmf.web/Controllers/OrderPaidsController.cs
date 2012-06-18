@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using tmf.entities;
 using tmf.web.Models;
+using tmf.web.ViewModels;
 
 namespace tmf.web.Controllers
 {   
@@ -12,18 +13,79 @@ namespace tmf.web.Controllers
     {
 		private readonly IWaiterRepository waiterRepository;
 		private readonly IRestaurantRepository restaurantRepository;
-		private readonly IOrderPaidRepository orderpaidRepository;
+        private readonly IOrderPaidRepository orderpaidRepository;
+        private readonly IProductTypeRepository producttypeRepository;
 
 		// If you are using Dependency Injection, you can delete the following constructor
-        public OrderPaidsController() : this(new WaiterRepository(), new RestaurantRepository(), new OrderPaidRepository())
+        public OrderPaidsController()
+            : this(new WaiterRepository(), new RestaurantRepository(), new OrderPaidRepository(), new ProductTypeRepository())
         {
         }
 
-        public OrderPaidsController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderPaidRepository orderpaidRepository)
+        public OrderPaidsController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderPaidRepository orderpaidRepository, IProductTypeRepository producttypeRepository)
         {
 			this.waiterRepository = waiterRepository;
 			this.restaurantRepository = restaurantRepository;
-			this.orderpaidRepository = orderpaidRepository;
+            this.orderpaidRepository = orderpaidRepository;
+            this.producttypeRepository = producttypeRepository;
+        }
+
+        //
+        // GET: /OrderPaids/
+
+        public ViewResult Filter()
+        {
+            Guid? productTypeId = null;
+            Guid? restaurantId = null;
+
+            if (TempData["productTypeId"] != null)
+            {
+                productTypeId = TempData["productTypeId"] as Guid?;
+            }
+
+            if (TempData["restaurantId"] != null)
+            {
+                restaurantId = TempData["restaurantId"] as Guid?;
+            }
+
+            var query = orderpaidRepository.AllIncluding(orderpaid => orderpaid.Waiter, orderpaid => orderpaid.Restaurant, orderpaid => orderpaid.Menus);
+            
+            //if(productType != null && restaurant != null)
+            //{
+                
+            //}
+
+            var vm = new OrderFilterViewModel();
+
+            if (restaurantId.HasValue)
+            {
+                vm.RestaurantId = restaurantId.Value;
+                query = query.Where(p => p.RestaurantId == restaurantId.Value);
+            }
+
+            if (productTypeId.HasValue)
+            {
+                vm.ProductTypeId = productTypeId.Value;
+                query = query.Where(p => p.Menus.Count(m => m.ProductTypeId == productTypeId.Value) > 0);
+            }
+
+            vm.Orders = query;
+
+            ViewBag.PossibleRestaurants = restaurantRepository.All;
+            ViewBag.PossibleProductTypes = producttypeRepository.All;
+
+            return View(vm);
+        }
+
+        //
+        // GET: /OrderPaids/
+        [HttpPost]
+        public ActionResult Filter(OrderFilterViewModel orderFilterViewModel)
+        {
+            TempData["productTypeId"] = orderFilterViewModel.ProductTypeId;
+            TempData["restaurantId"] = orderFilterViewModel.RestaurantId;
+
+            return RedirectToAction("Filter");
         }
 
         //
