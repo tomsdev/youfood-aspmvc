@@ -179,7 +179,7 @@ table a
     font-style:italic;
 }
 
-#contact
+.titleContent
 {
     width:350px;
     height:70px;
@@ -194,9 +194,18 @@ table a
     margin-left:50px;
 }
 
-#contactTable
+.bodyContent
 {
     float:left;
     margin-left:70px;
+    margin-top:15px;
+    width:500px;
+    color:#808080;
+}
+
+#footer
+{
+    float:left;
+    margin-left:10000px;
     margin-top:30px;
 }
