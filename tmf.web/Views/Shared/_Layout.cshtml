@@ -38,6 +38,31 @@
             <li class="liSelect">@Html.ActionLink("Restaurants", "Index", "Restaurants")</li>
             <li class="liSelect">@Html.ActionLink("Waiters", "Index", "Waiters")</li>
             <li class="liSelect">@Html.ActionLink("Zones", "Index", "Zones")</li>
+
+            @if (Session["role"] != null && Session["role"].ToString() == "client")
+            {
+                <li class="liSelect">@Html.ActionLink("You", "Index", "fake")</li>
+                <li class="liSelect">@Html.ActionLink("Client", "Index", "fake")</li>
+            }
+
+            @if (Session["role"] != null && Session["role"].ToString() == "waiter")
+            {
+                <li class="liSelect">@Html.ActionLink("You", "Index", "fake")</li>
+                <li class="liSelect">@Html.ActionLink("Waiter", "Index", "fake")</li>
+            }
+
+            @if (Session["role"] != null && Session["role"].ToString() == "cooker")
+            {
+                <li class="liSelect">@Html.ActionLink("You", "Index", "fake")</li>
+                <li class="liSelect">@Html.ActionLink("Cooker", "Index", "fake")</li>
+            }
+
+            @if (Session["role"] != null && Session["role"].ToString() == "admin")
+            {
+                <li class="liSelect">@Html.ActionLink("You", "Index", "fake")</li>
+                <li class="liSelect">@Html.ActionLink("Admin", "Index", "fake")</li>
+            }
+
             <li class="liSeparator"></li>
             
             <!-- 
@@ -63,7 +88,7 @@
 		    @RenderBody()
 	    </div>
         <div id="footer"></div>
-    </div>
+        </div>
     
 </body>
 </html>

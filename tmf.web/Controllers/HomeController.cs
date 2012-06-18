@@ -47,7 +47,42 @@ namespace tmf.web.Controllers
             //exemple pour recup le resto:
             //var monResto = Session["restaurant"] as Restaurant;
 
-            return RedirectToAction("About");
+            return RedirectToAction("Roles");
+        }
+
+        public ActionResult Roles()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Stock choosen role in Session (as a string)
+        /// </summary>
+        /// <param name="category">client, waiter, cooker, admin</param>
+        /// <returns></returns>
+        public ActionResult ChooseRole(string role)
+        {
+            Session["role"] = role;
+
+            if (role == "client")
+            {
+                return RedirectToAction("Create", "OrderCreatings");
+            }
+            else if (role == "waiter")
+            {
+                return RedirectToAction("Index", "OrderCreateds");
+            }
+            else if (role == "cooker")
+            {
+                return RedirectToAction("Index", "OrderPlaceds");
+            }
+            else if (role == "admin")
+            {
+                // TODO: rediriger sur la vrai page admin
+                return RedirectToAction("Contact");
+            }
+
+            return RedirectToAction("Roles");
         }
 
         public PartialViewResult Result()

@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Who are you?</h2>
+
+@Html.ActionLink("Client", "ChooseRole", "Home", new { role = "client" }, null)
+@Html.ActionLink("Waiter", "ChooseRole", "Home", new { role = "waiter" }, null)
+@Html.ActionLink("Cooker", "ChooseRole", "Home", new { role = "cooker" }, null)
+@Html.ActionLink("Admin", "ChooseRole", "Home", new { role = "admin" }, null)
