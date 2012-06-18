@@ -39,8 +39,10 @@ namespace tmf.web.Controllers
         public ActionResult Index(IndexViewModel indexViewModel)
         {
             var restaurant = restaurantRepository.Find(indexViewModel.RestaurantId);
+            var table = indexViewModel.Table;
 
             Session["restaurant"] = restaurant;
+            Session["table"] = table;
 
             //exemple pour recup le resto:
             //var monResto = Session["restaurant"] as Restaurant;

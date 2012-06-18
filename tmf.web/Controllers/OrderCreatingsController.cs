@@ -13,17 +13,19 @@ namespace tmf.web.Controllers
 		private readonly IWaiterRepository waiterRepository;
 		private readonly IRestaurantRepository restaurantRepository;
 		private readonly IOrderCreatingRepository ordercreatingRepository;
+        private readonly IZoneRepository zoneRepository;
 
 		// If you are using Dependency Injection, you can delete the following constructor
-        public OrderCreatingsController() : this(new WaiterRepository(), new RestaurantRepository(), new OrderCreatingRepository())
+        public OrderCreatingsController() : this(new WaiterRepository(), new RestaurantRepository(), new OrderCreatingRepository(), new ZoneRepository())
         {
         }
 
-        public OrderCreatingsController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderCreatingRepository ordercreatingRepository)
+        public OrderCreatingsController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderCreatingRepository ordercreatingRepository, IZoneRepository zoneRepository)
         {
 			this.waiterRepository = waiterRepository;
 			this.restaurantRepository = restaurantRepository;
 			this.ordercreatingRepository = ordercreatingRepository;
+            this.zoneRepository = zoneRepository;
         }
 
         //
@@ -59,6 +61,16 @@ namespace tmf.web.Controllers
         public ActionResult Create(OrderCreating ordercreating)
         {
             if (ModelState.IsValid) {
+                var monResto = Session["restaurant"] as Restaurant;
+                ordercreating.RestaurantId = monResto.Id;
+
+                var maTable = int.Parse(Session["table"].ToString());
+                ordercreating.Table = maTable;
+
+                var zone = zoneRepository.GetZoneByTable(maTable);
+                ordercreating.WaiterId = zone.WaiterId;
+                
+
                 ordercreatingRepository.InsertOrUpdate(ordercreating);
                 ordercreatingRepository.Save();
 

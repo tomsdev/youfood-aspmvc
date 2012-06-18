@@ -33,6 +33,17 @@ namespace tmf.web.Models
             return context.Zones.Find(id);
         }
 
+
+        public Guid FindIdByName(string zoneName)
+        {
+            var queryString = from zone in this.All
+                              where zone.Name.Equals(zoneName)
+                              select zone.Id;
+
+            return queryString.First();
+        }
+
+
         public void InsertOrUpdate(Zone zone)
         {
             if (zone.Id == default(System.Guid)) {
@@ -60,13 +71,44 @@ namespace tmf.web.Models
         {
             context.Dispose();
         }
+
+        public Zone GetZoneByTable(int table)
+        {
+            if (table > 0 && table < 10)
+            {
+                return this.Find(FindIdByName("Zone1"));                
+            }
+            else if (table >= 10 && table < 20)
+            {
+                return this.Find(FindIdByName("Zone2"));
+            }
+            else if (table >= 20 && table < 30)
+            {
+                return this.Find(FindIdByName("Zone3"));
+            }
+            else if (table >= 30 && table < 40)
+            {
+                return this.Find(FindIdByName("Zone4"));
+            }
+            else if (table >= 40 && table < 50)
+            {
+                return this.Find(FindIdByName("Zone5"));
+            }
+            else
+            {
+                return new Zone();
+            }
+        }
+
     }
 
     public interface IZoneRepository : IDisposable
     {
         IQueryable<Zone> All { get; }
         IQueryable<Zone> AllIncluding(params Expression<Func<Zone, object>>[] includeProperties);
+        Guid FindIdByName(string zoneName);
         Zone Find(System.Guid id);
+        Zone GetZoneByTable(int table);
         void InsertOrUpdate(Zone zone);
         void Delete(System.Guid id);
         void Save();

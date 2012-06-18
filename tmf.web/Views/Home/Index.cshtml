@@ -7,7 +7,20 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Choose your Restaurant..</legend>
+
+        
+        
+
+        <legend>Choose your Restaurant and table</legend>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Table)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Table)
+            @Html.ValidationMessageFor(model => model.Table)
+        </div>
 
         <div class="editor-field">
             @Html.DropDownListFor(model => model.RestaurantId, ((IEnumerable<tmf.entities.Restaurant>)ViewBag.PossibleRestaurants).Select(option => new SelectListItem {
