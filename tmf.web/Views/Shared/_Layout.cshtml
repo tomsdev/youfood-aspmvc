@@ -28,7 +28,7 @@
                 @RenderSection("Header")
             } else {
 		        <div id="title"><h1>@ViewBag.Title</h1></div>
-                @Html.Partial("_LogOnPartial")
+                <div id="logon">@Html.Partial("_LogOnPartial")</div>
             }
 	    </div>
 

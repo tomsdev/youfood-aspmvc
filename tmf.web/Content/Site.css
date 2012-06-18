@@ -56,13 +56,24 @@ body
     
 }
 
+#logon
+{
+    text-align:right;
+}
+
+#logon a
+{
+    text-decoration: none;
+    color: #a3a3a3;
+    font-style: italic;
+}
+
 #title
 {
     text-align:center;
     background-color: #a3a3a3;
     color: #fff;
     font-weight:300;
-    margin-right:25px;
 }
 
 li
@@ -104,29 +115,41 @@ li a
 table
 {
     margin: auto;
+    border-collapse:collapse;
+    text-align:left;
+    border-bottom:1px solid #c6c6c6;
 }
 
 table th
 {
-    background-color: #808080;
+    /*background-color: #c6c6c6;*/
+    font-weight:400;
+    font-style:italic;
     min-width:100px;
-    color: #fff;
+    color: #c6c6c6;
+    border-bottom:1px solid #c6c6c6;
+    
 }
 
-table td:first-child
+/*table td:first-child
 {
-    background-color: #808080;
-}
+    background-color: #c6c6c6;
+}*/
 
 table td
 {
-    background-color:#a3a3a3;
-    color:#fff;
+    background-color:#fff;
+    /*border:1px solid #c6c6c6;*/
+    color:#8e8e8e;
+    padding:10px 20px 10px 0px;
+    /*border-bottom:1px solid #c6c6c6;*/
+    
 }
 
 
 table a
 {
     text-decoration: none;
-    color:#fff;
+    color:#c6c6c6;
+    font-style:italic;
 }
