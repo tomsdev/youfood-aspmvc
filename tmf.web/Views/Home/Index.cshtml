@@ -18,10 +18,12 @@
             @Html.LabelFor(model => model.Table)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Table, new { size = 100 })
+            @Html.EditorFor(model => model.Table)
             @Html.ValidationMessageFor(model => model.Table)
         </div>
-
+        <div class="editor-label">
+          <br />Restaurant
+        </div>
         <div class="editor-field">
             @Html.DropDownListFor(model => model.RestaurantId, ((IEnumerable<tmf.entities.Restaurant>)ViewBag.PossibleRestaurants).Select(option => new SelectListItem {
                 Text = (option == null ? "None" : option.Name), 
@@ -30,9 +32,9 @@
             }), "Choose...")
             @Html.ValidationMessageFor(model => model.RestaurantId)
         </div>
-
+        <br>
         <p>
-            <input type="submit" value="Select" />
+            <input class="submitInput" type="submit" value="Select" />
         </p>
      </div>
     <!-- </fieldset> -->

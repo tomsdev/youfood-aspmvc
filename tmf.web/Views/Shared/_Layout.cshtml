@@ -34,36 +34,9 @@
                 @*<div id="logon">@Html.Partial("_LogOnPartial")</div>*@
             }
 	    </div>
-        @if (ViewBag.Title != "Start" && ViewBag.Title != "Delete" && ViewBag.Title != "Categories")
+        @if (ViewBag.Title != "Start" && ViewBag.Title != "Delete" && ViewBag.Title != "Categories" && ViewBag.Title != "Payment")
         {
         <ul data-role="listview" data-inset="true">
-            <!-- <li data-role="list-divider" class="liTitle">Navigation</li>
-            <li class="liSelect">@Html.ActionLink("Menus", "Index", "Menus")</li>
-            <li class="liSelect">@Html.ActionLink("Menu Client", "Create", "OrderCreatings")</li>
-            <li class="liSelect">@Html.ActionLink("Product Types", "Index", "ProductTypes")</li>
-            <li class="liSelect">@Html.ActionLink("Restaurants", "Index", "Restaurants")</li>
-            <li class="liSelect">@Html.ActionLink("Waiters", "Index", "Waiters")</li>
-            <li class="liSelect">@Html.ActionLink("Zones", "Index", "Zones")</li>
-
-            <li class="liSeparator"></li>
-            
-            
-            <li data-role="list-divider" class="liTitle">Order</li>
-            <li class="liSelect">@Html.ActionLink("Orders", "Index", "Orders")</li>
-            <li class="liSelect">@Html.ActionLink("Order Creating", "Index", "OrderCreatings")</li>
-            <li class="liSelect">@Html.ActionLink("Order Created", "Index", "OrderCreateds")</li>
-            <li class="liSelect">@Html.ActionLink("Order Placed", "Index", "OrderPlaceds")</li>
-            <li class="liSelect">@Html.ActionLink("Order Cooking", "Index", "OrderCookings")</li>
-            <li class="liSelect">@Html.ActionLink("Order Cooked", "Index", "OrderCookeds")</li>
-            <li class="liSelect">@Html.ActionLink("Order Served", "Index", "OrderServeds")</li>
-            <li class="liSelect">@Html.ActionLink("Order Paid", "Index", "OrderPaids")</li>
-
-            <li class="liSeparator"></li>
-            <li data-role="list-divider" class="liTitle">Us</li>
-            <li class="liSelect">@Html.ActionLink("About", "About", "Home")</li>
-            <li class="liSelect">@Html.ActionLink("Contact", "Contact", "Home")</li> -->
-
-
             @if (Session["role"] != null && Session["role"].ToString() == "client")
             {
                 <li data-role="list-divider" class="liTitle">Navigation</li>

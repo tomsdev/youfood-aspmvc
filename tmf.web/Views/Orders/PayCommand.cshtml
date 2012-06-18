@@ -1,14 +1,13 @@
 ﻿@model tmf.entities.Menu
 
 @{
-    ViewBag.Title = "PayCommand";
+    ViewBag.Title = "Payment";
 }
 
-<h2>PayCommand</h2>
-
-<fieldset>
-    <legend>Menu</legend>
-
+<!-- <fieldset>
+    <legend>Menu</legend> -->
+<h2><span class="titleContent">Payment Command</span></h2>
+<div class="bodyContent">
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Title)
     </div>
@@ -36,7 +35,8 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.ProductTypeId)
     </div>
-</fieldset>
+</div>
+<!-- </fieldset> -->
 @*<p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
     @Html.ActionLink("Back to List", "Index")

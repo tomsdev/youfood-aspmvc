@@ -221,3 +221,41 @@ table a
     margin-left:10000px;
     margin-top:30px;
 }
+
+.display-label
+{
+    font-style:italic;
+}
+
+.editor-label
+{
+    font-style:italic;
+}
+
+.custInput
+{
+    min-width: 200px;
+    color:#808080;
+}
+
+.custSelect
+{
+    min-width: 200px;
+    color:#808080;
+}
+
+.submitInput
+{
+    min-width: 200px;
+    color: #fff;
+    background-color:#3b9fff;
+    border:none;
+    height:30px;
+}
+
+.submitInput:hover
+{
+    color: #fff;
+    background-color: #2780d5;
+    border: none;
+}
