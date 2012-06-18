@@ -105,21 +105,9 @@ ul
    /* margin-top:70px;*/
 }
 
-li
-{
-    list-style-type:none;
-    margin:10px 10px 10px 10px;
-    height:70px;
-    width:150px;
-    display:inline-block;
-    text-align:center;
-    padding-top:50px;
-}
-
 li a
 {
-    text-decoration: none;
-    color: #fff;  
+    
 }
 
 .liSeparator
@@ -132,12 +120,35 @@ li a
 
 .liSelect
 {
+    list-style-type:none;
+    margin:10px 10px 10px 10px;
+    height:70px;
+    width:150px;
+    display:inline-block;
+    text-align:center;
+    padding-top:50px;
+    
+    
     background-color: #3b9fff;
     color: #fff;
 }
 
+.liSelect a
+{
+    text-decoration: none;
+    color: #fff;  
+}
+
 .liTitle
 {
+    list-style-type:none;
+    margin:10px 10px 10px 10px;
+    height:70px;
+    width:150px;
+    display:inline-block;
+    text-align:center;
+    padding-top:50px;
+    
     background-color: #808080;
     color: #fff;
 }
@@ -189,7 +200,7 @@ table a
     background-color:#808080;
     font-weight:400;
     text-align:center;
-    padding-top:50px;
+    padding-top:40px;
     margin-top:20px;
     margin-bottom:40px;
     margin-left:50px;

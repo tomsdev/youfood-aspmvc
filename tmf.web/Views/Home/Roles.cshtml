@@ -2,9 +2,11 @@
     ViewBag.Title = "Categories";
 }
 
-<h2>Who are you?</h2>
+<h2><span class="titleContent">Who are you?</span></h2>
 
-@Html.ActionLink("Client", "ChooseRole", "Home", new { role = "client" }, null)
-@Html.ActionLink("Waiter", "ChooseRole", "Home", new { role = "waiter" }, null)
-@Html.ActionLink("Cooker", "ChooseRole", "Home", new { role = "cooker" }, null)
-@Html.ActionLink("Admin", "ChooseRole", "Home", new { role = "admin" }, null)
+<div class="bodyContent">
+<span class="liSelect">@Html.ActionLink("Client", "ChooseRole", "Home", new { role = "client" }, null)</span>
+<span class="liSelect">@Html.ActionLink("Waiter", "ChooseRole", "Home", new { role = "waiter" }, null)</span>
+<span class="liSelect">@Html.ActionLink("Cooker", "ChooseRole", "Home", new { role = "cooker" }, null)</span>
+<span class="liSelect">@Html.ActionLink("Admin", "ChooseRole", "Home", new { role = "admin" }, null)</span>
+</div>

@@ -12,13 +12,13 @@
         
         
         <legend>Choose your Restaurant and table</legend> -->
-    <div class="titleContent">Choose your Restaurant and table</div>
+    <h3><span class="titleContent">Choose your Restaurant and table</span></h3>
     <div class="bodyContent">
         <div class="editor-label">
             @Html.LabelFor(model => model.Table)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Table)
+            @Html.EditorFor(model => model.Table, new { size = 100 })
             @Html.ValidationMessageFor(model => model.Table)
         </div>
 

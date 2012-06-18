@@ -1,16 +1,16 @@
 ﻿@model tmf.web.ViewModels.OrderOneMenuViewModel
 
 @{
-    ViewBag.Title = "OrderOneMenu";
+    ViewBag.Title = "Order a menu";
 }
-
-<h2>Index</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Menu</legend>
+    <!-- <fieldset>
+        <legend>Menu</legend> -->
+    <h2><span class="titleContent">Menu</span></h2>
 
+    <div class="bodyContent">
         @Html.HiddenFor(p => p.IdOrder)
 
 		@*<div class="editor-label">
@@ -55,18 +55,19 @@
             
             }
         </table>
-
+        <br /><br />
         <div class="editor-label">
             Order terminated?
-        </div>
-        <div class="editor-field">
+        
+        <span class="editor-field">
             @Html.CheckBoxFor(model => model.IsOrderTerminated)
-        </div>
+        </span></div>
 
         <p>
             <input type="submit" value="Create" />
         </p>
-    </fieldset>
+        </div>
+    <!-- </fieldset> -->
 }
 @*
 <p>

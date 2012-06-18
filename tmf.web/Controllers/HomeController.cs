@@ -14,18 +14,20 @@ namespace tmf.web.Controllers
         private readonly IWaiterRepository waiterRepository;
 		private readonly IRestaurantRepository restaurantRepository;
 		private readonly IOrderRepository orderRepository;
+        private readonly IOrderCreatingRepository orderCreatingRepository;
 
 		// If you are using Dependency Injection, you can delete the following constructor
         public HomeController()
-            : this(new WaiterRepository(), new RestaurantRepository(), new OrderRepository())
+            : this(new WaiterRepository(), new RestaurantRepository(), new OrderRepository(), new OrderCreatingRepository())
         {
         }
 
-        public HomeController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderRepository orderRepository)
+        public HomeController(IWaiterRepository waiterRepository, IRestaurantRepository restaurantRepository, IOrderRepository orderRepository, IOrderCreatingRepository orderCreatingRepository)
         {
 			this.waiterRepository = waiterRepository;
 			this.restaurantRepository = restaurantRepository;
 			this.orderRepository = orderRepository;
+            this.orderCreatingRepository = orderCreatingRepository;
         }
 
         public ActionResult Index()
@@ -94,14 +96,14 @@ namespace tmf.web.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your quintessential app description page.";
-
+            //orderCreatingRepository.purgeDatabase();
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your quintessential contact page.";
-
+            //orderCreatingRepository.purgeDatabase();
             return View();
         }
     }
