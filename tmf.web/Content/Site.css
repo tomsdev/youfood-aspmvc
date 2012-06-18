@@ -1,6 +1,6 @@
 ﻿/* Styles for validation helpers
 -----------------------------------------------------------*/
-.field-validation-error {
+/*.field-validation-error {
     color: #ff0000;
     display: block;
     margin-top: 8px;
@@ -23,13 +23,13 @@
 
 .validation-summary-valid {
     display: none;
-}
+}*/
 
 /* jQuery mobile styles
 -----------------------------------------------------------*/
 
 /* Make listview buttons fill the whole horizontal width of the screen */
-.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li {
+/*.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li {
     padding-right: 15px;
 }
 
@@ -40,4 +40,197 @@
 .ui-bar-e, .ui-body-e, .ui-btn-up-e, .ui-btn-hover-e, .ui-btn-down-e,
 .ui-btn-active  {
 	text-shadow: none;
+}*/
+
+
+
+/* ****** MY CSS ****** */
+body
+{
+    background-color:#e9e9e9;
+    font-family:Verdana;
+}
+
+#contentBody
+{
+    
+}
+
+#title
+{
+    margin:auto;
+    color: #fff;
+    font-weight:400;
+    margin-right:25px;
+}
+
+li
+{
+    list-style-type:none;
+    /* display:inline-block; */
+    margin:10px 10px 10px 10px;
+    height:70px;
+    display:inline-block;
+}
+
+li a
+{
+    text-decoration: none;
+    color: #fff;  
+}
+
+.liSeparator
+{
+    list-style-type:none;
+    height:0px;
+    display:block;
+}
+
+#navig
+{
+    background-color:#808080;
+    color:#fff;
+    width:120px;
+    padding-top:50px;
+    padding-left:30px;
+}
+
+#us
+{
+    background-color:#808080;
+    width:90px;
+    color:#fff;
+    padding-top:50px;
+    padding-left:60px;
+}
+
+#about
+{
+    background-color:#3b9fff;
+    width:100px;
+    padding-top:50px;
+    padding-left:50px;
+}
+
+#contact
+{
+    background-color:#3b9fff;
+    width:110px;
+    padding-top:50px;
+    padding-left:40px;
+}
+
+#menus
+{
+    background-color:#3b9fff;
+    height:70px;
+    width:100px;
+    padding-top:50px;
+    padding-left:50px;
+}
+
+#productTypes
+{
+    background-color:#3b9fff;
+    width:130px;
+    padding-top:50px;
+    padding-left:20px;
+}
+
+#restaurant
+{
+    background-color: #3b9fff;
+    width: 125px;
+    padding-top: 50px;
+    padding-left: 25px;
+}
+
+#waiters
+{
+    background-color: #3b9fff;
+    height: 70px;
+    width: 110px;
+    padding-top: 50px;
+    padding-left: 40px;
+}
+
+#zones
+{
+    background-color: #3b9fff;
+    width: 100px;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+#order
+{
+    background-color:#808080;
+    width: 100px;
+    color:#fff;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+#orders
+{
+    background-color: #3b9fff;
+    width: 105px;
+    padding-top: 50px;
+    padding-left: 45px;
+}
+
+#orderCreatings
+{
+    background-color: #3b9fff;
+    width: 135px;
+    padding-top: 50px;
+    padding-left: 15px;
+}
+
+#orderCreateds
+{
+    background-color: #3b9fff;
+    width: 135px;
+    padding-top: 50px;
+    padding-left: 15px;
+}
+
+#orderPlaceds
+{
+    background-color: #3b9fff;
+    width: 130px;
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+#orderCookings
+{
+    background-color: #3b9fff;
+    width: 135px;
+    padding-top: 50px;
+    padding-left: 15px;
+}
+
+#orderCookeds
+{
+    background-color: #3b9fff;
+    width: 135px;
+    padding-top: 50px;
+    padding-left: 15px;
+}
+
+#orderServeds
+{
+    background-color: #3b9fff;
+    width: 135px;
+    padding-top: 50px;
+    padding-left: 15px;
+}
+
+#orderPaids
+{
+    background-color: #3b9fff;
+    width: 120px;
+    padding-top: 50px;
+    padding-left: 30px;
 }

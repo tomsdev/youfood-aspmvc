@@ -5,7 +5,7 @@
 	    <title>@ViewBag.Title</title> 
         <meta name="viewport" content="width=device-width" />
 	    <link rel="stylesheet" href="@Url.Content("~/Content/jquery.mobile-1.0b2.min.css")" />
-        <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" />
+        <!-- <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" /> -->
 	    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")"></script>
         <script type="text/javascript">
             $(document).bind("mobileinit", function() {
@@ -27,33 +27,38 @@
             @if (IsSectionDefined("Header")) {
                 @RenderSection("Header")
             } else {
-		        <h1>@ViewBag.Title</h1>
+		        <h1><span id="title">@ViewBag.Title</span></h1>
                 @Html.Partial("_LogOnPartial")
             }
 	    </div>
 
-	    <div data-role="content">	
+	    <div id="contentBody" data-role="content">	
 		    @RenderBody()
 	    </div>
 
         <ul data-role="listview" data-inset="true">
-            <li data-role="list-divider">Navigation</li>
-            <li>@Html.ActionLink("About", "About", "Home")</li>
-            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            <li>@Html.ActionLink("Menus", "Index", "Menus")</li>
-            <li>@Html.ActionLink("ProductTypes", "Index", "ProductTypes")</li>
-            <li>@Html.ActionLink("Restaurants", "Index", "Restaurants")</li>
-            <li>@Html.ActionLink("Waiters", "Index", "Waiters")</li>
-            <li>@Html.ActionLink("Zones", "Index", "Zones")</li>
+            <li data-role="list-divider" id="navig">Navigation</li>
+            <li id="menus">@Html.ActionLink("Menus", "Index", "Menus")</li>
+            <li id="productTypes">@Html.ActionLink("ProductTypes", "Index", "ProductTypes")</li>
+            <li id="restaurant">@Html.ActionLink("Restaurants", "Index", "Restaurants")</li>
+            <li id="waiters">@Html.ActionLink("Waiters", "Index", "Waiters")</li>
+            <li id="zones">@Html.ActionLink("Zones", "Index", "Zones")</li>
+            <li class="liSeparator"></li>
 
-            <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
-            <li>@Html.ActionLink("OrderCreatings", "Index", "OrderCreatings")</li>
-            <li>@Html.ActionLink("OrderCreateds", "Index", "OrderCreateds")</li>
-            <li>@Html.ActionLink("OrderPlaceds", "Index", "OrderPlaceds")</li>
-            <li>@Html.ActionLink("OrderCookings", "Index", "OrderCookings")</li>
-            <li>@Html.ActionLink("OrderCookeds", "Index", "OrderCookeds")</li>
-            <li>@Html.ActionLink("OrderServeds", "Index", "OrderServeds")</li>
-            <li>@Html.ActionLink("OrderPaids", "Index", "OrderPaids")</li>
+            <li data-role="list-divider" id="order">Order</li>
+            <li id="orders">@Html.ActionLink("Orders", "Index", "Orders")</li>
+            <li id="orderCreatings">@Html.ActionLink("OrderCreatings", "Index", "OrderCreatings")</li>
+            <li id="orderCreateds">@Html.ActionLink("OrderCreateds", "Index", "OrderCreateds")</li>
+            <li id="orderPlaceds">@Html.ActionLink("OrderPlaceds", "Index", "OrderPlaceds")</li>
+            <li id="orderCookings">@Html.ActionLink("OrderCookings", "Index", "OrderCookings")</li>
+            <li id="orderCookeds">@Html.ActionLink("OrderCookeds", "Index", "OrderCookeds")</li>
+            <li id="orderServeds">@Html.ActionLink("OrderServeds", "Index", "OrderServeds")</li>
+            <li id="orderPaids">@Html.ActionLink("OrderPaids", "Index", "OrderPaids")</li>
+
+            <li class="liSeparator"></li>
+            <li data-role="list-divider" id="us">Us</li>
+            <li id="about">@Html.ActionLink("About", "About", "Home")</li>
+            <li id="contact">@Html.ActionLink("Contact", "Contact", "Home")</li>
 
         </ul>
     </div>
