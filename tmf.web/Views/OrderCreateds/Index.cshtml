@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table id="ordersCreated">
     <tr>
         <th></th>
         <th>
@@ -27,28 +27,13 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Placed", "CreateFromOrder", "Orders", new { idOrder=item.Id, controllerName="OrderPlaceds", state="placed" }, null) |
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-        <td>
-			@item.Table
-        </td>
-        <td>
-			@Html.DisplayTextFor(_ => item.Waiter).ToString()
-        </td>
-        <td>
-			@(item.Restaurant == null ? "None" : item.Restaurant.Name)
-        </td>
-        <td>
-			@(item.Menus == null ? "None" : item.Menus.Count.ToString())
-        </td>
-    </tr>
+    @Html.Partial("Order", item)
 }
 
 </table>
+
+<script type="text/javascript">
+    connectHub("created", "ordersCreated");
+</script>
 
 

@@ -55,7 +55,15 @@ namespace tmf.web.Controllers
             {
                 order = orderRepository.TransformOrderTo<OrderCooked>(idOrder);
             }
-            //TODO: autre states...
+            else if (state == "served")
+            {
+                order = orderRepository.TransformOrderTo<OrderServed>(idOrder);
+            }
+            else if (state == "paid")
+            {
+                order = orderRepository.TransformOrderTo<OrderPaid>(idOrder);
+            }
+            
 
 //            TmfHubActions.AddOrder(order.Id, "placed");
             TmfHubActions.AddOrder(order.Id, state);
