@@ -13,9 +13,10 @@
 
         @Html.HiddenFor(p => p.IdOrder)
 
-		<div class="editor-label">
+		@*<div class="editor-label">
             Menu
         </div>
+        
         <div class="editor-field">
             @Html.DropDownListFor(model => model.IdMenuSelected, (Model.Menus).Select(option => new SelectListItem {
                 Text = Html.DisplayTextFor(_ => option).ToString(), 
@@ -24,6 +25,36 @@
             }), "Choose...")
             @Html.ValidationMessageFor(model => model.IdMenuSelected)
         </div>
+        *@
+
+
+        <table>
+            <tr>
+                <th>
+                    Selection
+                </th>
+                <th>
+                    Menu
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Prix
+                </th>
+            </tr>
+
+            @foreach( var item in Model.Menus){
+                <tr>
+                    <td>@Html.RadioButtonFor(model => model.IdMenuSelected, @item.Id)</td>
+                    <td>@item.Title</td>
+                    <td>@item.ProductType</td>
+                    <td>@String.Format("{0:F}", item.Prix)</td>
+                    
+                </tr>
+            
+            }
+        </table>
 
         <div class="editor-label">
             Order terminated?
@@ -37,7 +68,7 @@
         </p>
     </fieldset>
 }
-
+@*
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -79,6 +110,5 @@
         </td>
     </tr>
 }
-
-</table>
+</table>*@
 
