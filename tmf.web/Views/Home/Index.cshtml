@@ -1,19 +1,19 @@
 ﻿@model tmf.web.ViewModels.IndexViewModel
 
 @{
-    ViewBag.Title = "Acceuil";
+    ViewBag.Title = "Start";
 }
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
+    <!-- <fieldset>
 
         
         
-
-        <legend>Choose your Restaurant and table</legend>
-
-
+        
+        <legend>Choose your Restaurant and table</legend> -->
+    <div class="titleContent">Choose your Restaurant and table</div>
+    <div class="bodyContent">
         <div class="editor-label">
             @Html.LabelFor(model => model.Table)
         </div>
@@ -25,7 +25,7 @@
         <div class="editor-field">
             @Html.DropDownListFor(model => model.RestaurantId, ((IEnumerable<tmf.entities.Restaurant>)ViewBag.PossibleRestaurants).Select(option => new SelectListItem {
                 Text = (option == null ? "None" : option.Name), 
-                Value = option.Id.ToString(),
+                Value = option.Id.ToString(),           
                 Selected = (Model != null) && (option.Id == Model.RestaurantId)
             }), "Choose...")
             @Html.ValidationMessageFor(model => model.RestaurantId)
@@ -34,6 +34,7 @@
         <p>
             <input type="submit" value="Select" />
         </p>
-    </fieldset>
+     </div>
+    <!-- </fieldset> -->
 }
 

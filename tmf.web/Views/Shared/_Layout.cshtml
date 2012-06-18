@@ -31,6 +31,8 @@
                 @*<div id="logon">@Html.Partial("_LogOnPartial")</div>*@
             }
 	    </div>
+        @if(ViewBag.Title != "Start" && ViewBag.Title != "Delete")
+        {
         <ul data-role="listview" data-inset="true">
             <li data-role="list-divider" class="liTitle">Navigation</li>
             <li class="liSelect">@Html.ActionLink("Menus", "Index", "Menus")</li>
@@ -82,6 +84,7 @@
             <li class="liSelect">@Html.ActionLink("Contact", "Contact", "Home")</li>
 
         </ul>
+        }
         <div class="divSeparator"></div>
 
 	    <div id="contentBody" data-role="content">	
