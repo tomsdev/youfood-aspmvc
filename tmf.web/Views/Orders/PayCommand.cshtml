@@ -1,0 +1,43 @@
+﻿@model tmf.entities.Menu
+
+@{
+    ViewBag.Title = "PayCommand";
+}
+
+<h2>PayCommand</h2>
+
+<fieldset>
+    <legend>Menu</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Prix)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Prix)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductTypeId)
+    </div>
+</fieldset>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

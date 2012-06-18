@@ -1,16 +1,16 @@
 @model tmf.entities.OrderCreating
 
 @* This partial view defines form fields that will appear when creating and editing entities *@
-@*
+
 <div class="editor-label">
     @Html.LabelFor(model => model.Table)
 </div>
 <div class="editor-field">
     @Html.EditorFor(model => model.Table)
     @Html.ValidationMessageFor(model => model.Table)
-</div>*@
+</div>
 
-@*
+
 <div class="editor-label">
     Waiter
 </div>
@@ -21,9 +21,9 @@
         Selected = (Model != null) && (option.Id == Model.WaiterId)
     }), "Choose...")
     @Html.ValidationMessageFor(model => model.WaiterId)
-</div>*@
+</div>
 
-@*
+
 <div class="editor-label">
     Restaurant
 </div>
@@ -35,4 +35,4 @@
         Selected = (Model != null) && (option.Id == Model.RestaurantId)
     }), "Choose...")
     @Html.ValidationMessageFor(model => model.RestaurantId)
-</div> *@
+</div> 

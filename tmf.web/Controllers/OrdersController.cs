@@ -46,31 +46,38 @@ namespace tmf.web.Controllers
             if (state == "created")
             {
                 order = orderRepository.TransformOrderTo<OrderCreated>(idOrder);
+                return RedirectToAction("PayCommand", "Orders");
             }
             else if (state == "placed")
             {
                 order = orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
+                return RedirectToAction("Index", "OrderCreateds");
             }
             else if (state == "cooking")
             {
                 order = orderRepository.TransformOrderTo<OrderCooking>(idOrder);
+                return RedirectToAction("Index", "OrderPlaceds");
             }
             else if (state == "cooked")
             {
                 order = orderRepository.TransformOrderTo<OrderCooked>(idOrder);
+                return RedirectToAction("Index", "OrderCookings");
             }
             else if (state == "served")
             {
                 order = orderRepository.TransformOrderTo<OrderServed>(idOrder);
+                return RedirectToAction("Index", "OrderCookeds");
             }
             else if (state == "paid")
             {
                 order = orderRepository.TransformOrderTo<OrderPaid>(idOrder);
+                //retour index pour nouveau client
+                return RedirectToAction("Index", "OrderServeds");
             }
             
             TmfHubActions.AddOrder(order.Id, state);
 
-            return RedirectToAction("Index", controllerName);
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -161,6 +168,11 @@ namespace tmf.web.Controllers
             orderRepository.Save();
 
             return RedirectToAction("Index");
+        }
+
+        public ViewResult PayCommand(Menu menu)
+        {
+            return View(menu);
         }
 
         protected override void Dispose(bool disposing)
