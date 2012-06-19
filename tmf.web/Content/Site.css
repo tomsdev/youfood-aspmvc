@@ -211,6 +211,15 @@ table a
     float:left;
     margin-left:70px;
     margin-top:15px;
+    width:auto;
+    color:#808080;
+}
+
+#aboutContent
+{
+    float:left;
+    margin-left:70px;
+    margin-top:15px;
     width:500px;
     color:#808080;
 }
@@ -251,6 +260,7 @@ table a
     background-color:#3b9fff;
     border:none;
     height:30px;
+    font-size:15px;
 }
 
 .submitInput:hover

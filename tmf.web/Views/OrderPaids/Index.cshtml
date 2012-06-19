@@ -1,14 +1,15 @@
 @model IEnumerable<tmf.entities.OrderPaid>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Order Paid";
 }
 
-<h2>Index</h2>
+<h2><span class="titleContent">Order Paid</span></h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
+<div class="bodyContent">
 <table id="ordersPaid">
     <tr>
         <th></th>
@@ -33,7 +34,7 @@
 }
 
 </table>
-
+    </div>
 <script type="text/javascript">
     connectHub("paid", "ordersPaid");
 </script>
