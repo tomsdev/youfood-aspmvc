@@ -19,13 +19,12 @@
         <table>
             @foreach (var item in Model.Menus)
             {
-                @item.Prix
-                @item.Title
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@String.Format("{0:F}", item.Prix)</td>
+                </tr>
             }
         </table>
+        @String.Format("{0:F}", ViewBag.addition)
     </div>
 </fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

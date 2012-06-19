@@ -104,6 +104,15 @@ namespace tmf.web.Controllers
                              where order.Table == maTable
                              select order;
 
+            double calcul = 0;
+
+            foreach (var item in queryOrder.First().Menus)
+            {
+                calcul += item.Prix;
+            }
+
+            ViewBag.addition = calcul;
+
             return View(queryOrder.First());
         }
 
