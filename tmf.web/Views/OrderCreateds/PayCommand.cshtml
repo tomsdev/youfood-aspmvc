@@ -1,22 +1,31 @@
 ﻿@model tmf.entities.OrderCreated
 
 @{
-    ViewBag.Title = "PayCommand";
+    ViewBag.Title = "Payment Command";
 }
 
-<h2>PayCommand</h2>
+<h2><span class="titleContent">Payment Command</span></h2>
 
-<fieldset>
-    <legend>OrderCreated</legend>
+@*<fieldset>
+    <legend>OrderCreated</legend>*@
+<div class="bodyContent">
 
-    <div class="display-label">
+    <div class="tableNumber">
          @Html.DisplayNameFor(model => model.Table)
-    </div>
-    <div class="display-field">
+            <span> : </span>
         @Html.DisplayFor(model => model.Table)
     </div>
+    <br /><br />
     <div>
         <table>
+            <tr>
+                <th>
+                    Menu
+                </th>
+                <th>
+                    Prix
+                </th>
+            </tr>
             @foreach (var item in Model.Menus)
             {
                 <tr>
@@ -25,6 +34,8 @@
                 </tr>
             }
         </table>
+        <span><br />Prix total : </span>
         @String.Format("{0:F}", ViewBag.addition)
     </div>
-</fieldset>
+</div>
+@*</fieldset>*@
