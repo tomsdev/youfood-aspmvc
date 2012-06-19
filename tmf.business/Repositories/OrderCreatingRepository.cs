@@ -45,6 +45,19 @@ namespace tmf.web.Models
             }
         }
 
+        //purge la DB des order sans menu
+        public void PurgeDatabase()
+        {
+            var purgeQuery = from order in this.All
+                             where order.Menus.Count == 0
+                             select order;
+            
+            foreach (var item in purgeQuery)
+            {
+                Delete(item.Id);
+            }
+        }
+
         public void Delete(System.Guid id)
         {
             var ordercreating = context.OrderCreatings.Find(id);
@@ -67,6 +80,7 @@ namespace tmf.web.Models
         IQueryable<OrderCreating> All { get; }
         IQueryable<OrderCreating> AllIncluding(params Expression<Func<OrderCreating, object>>[] includeProperties);
         OrderCreating Find(System.Guid id);
+        void PurgeDatabase();
         void InsertOrUpdate(OrderCreating ordercreating);
         void Delete(System.Guid id);
         void Save();

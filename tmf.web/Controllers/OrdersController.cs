@@ -71,7 +71,6 @@ namespace tmf.web.Controllers
             else if (state == "paid")
             {
                 order = orderRepository.TransformOrderTo<OrderPaid>(idOrder);
-                //retour index pour nouveau client
                 return RedirectToAction("Index", "OrderServeds");
             }
             
@@ -123,6 +122,7 @@ namespace tmf.web.Controllers
 			}
         }
         
+
         //
         // GET: /Orders/Edit/5
  

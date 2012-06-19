@@ -95,15 +95,16 @@ namespace tmf.web.Controllers
 
         public ActionResult About()
         {
+            //in comment jusqu'a fonctionnement
+            //orderCreatingRepository.PurgeDatabase();
             ViewBag.Message = "Your quintessential app description page.";
-            //orderCreatingRepository.purgeDatabase();
             return View();
         }
 
         public ActionResult Contact()
         {
+            //orderCreatingRepository.PurgeDatabase();
             ViewBag.Message = "Your quintessential contact page.";
-            //orderCreatingRepository.purgeDatabase();
             return View();
         }
     }
