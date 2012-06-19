@@ -40,15 +40,15 @@
 		@(Model.Restaurant == null ? "None" : Model.Restaurant.Name)
     </td>
     <td>
-        <table>
+        <ul>
 		@*@(Model.Menus == null ? "None" : Model.Menus.Count.ToString())*@
             @foreach(var item in Model.Menus)
             {
-                <tr>
-                    <td>@item.Title</td>
-                </tr>
+                <li>
+                    @item.Title
+                </li>
             }
-        </table>
+        </ul>
     </td>
 
 

@@ -27,6 +27,8 @@
         </div>
         *@
 
+        <!-- ############################ OLD VIEW ################################ -->
+        @*
         <table>
             <tr>
                 <th>
@@ -54,6 +56,59 @@
             
             }
         </table>
+        *@
+        @foreach( var item in Model.Menus){
+                <div class="displayMenu">
+                    @if (item.Title == "Aligot")
+                    {
+                        <img src="~/Content/Images/menu/aligot.jpg" />
+                    }
+                    else if(item.Title == "Canard Laqué")
+                    {
+                        <img src="~/Content/Images/menu/canardlaque.jpg" />
+                    }
+                    else if(item.Title == "Enchiladas")
+                    {
+                        <img src="~/Content/Images/menu/enchiladas.jpg" />
+                    }
+                    else if(item.Title == "Fajitas")
+                    {
+                        <img src="~/Content/Images/menu/fajitas.jpg" />
+                    }
+                    else if(item.Title == "Hamburger")
+                    {
+                        <img src="~/Content/Images/menu/hamburger.jpg" />
+                    }
+                    else if(item.Title == "Nems")
+                    {
+                        <img src="~/Content/Images/menu/nem.jpg" />
+                    }
+                    else if(item.Title == "Poulet au curry")
+                    {
+                        <img src="~/Content/Images/menu/pouletcurry.jpg" />
+                    }
+                    else if(item.Title == "Spaghetti")
+                    {
+                        <img src="~/Content/Images/menu/spaghetti.jpg" />
+                    }
+                    else if(item.Title == "Sushi Maki")
+                    {
+                        <img src="~/Content/Images/menu/sushimaki.jpg" />
+                    }
+                    else
+                    {
+                        <img src="~/Content/Images/menu/empty.jpg" />
+                    }
+                    <div class="displayMenuInformation">
+                    @Html.RadioButtonFor(model => model.IdMenuSelected, @item.Id)
+                    @item.Title
+                    <span> (</span>@item.ProductType<span>) Prix : </span>
+                    @String.Format("{0:F}", item.Prix)<span>E</span>
+                   </div>
+                </div>
+            
+              
+        }
         <br /><br />
         <div class="editor-label">
             Order terminated?
@@ -66,6 +121,7 @@
             <input class="submitInput" type="submit" value="Create" />
         </p>
         </div>
+            
     <!-- </fieldset> -->
 }
 @*

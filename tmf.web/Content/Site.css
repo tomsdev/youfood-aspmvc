@@ -183,7 +183,6 @@ table th
     min-width:100px;
     color: #c6c6c6;
     border-bottom:1px solid #c6c6c6;
-    
 }
 
 /*table td:first-child
@@ -296,6 +295,73 @@ table a
     color:#fff;
 }
 
+#ordersCreated tr
+{
+    border-bottom:1px solid #e5e5e5;
+}
+
+#ordersCreated li
+{
+    list-style-type:circle;
+}
+
+.displayMenu
+{
+    display:inline-block;
+    margin-bottom: 10px;
+    padding-bottom:5px;
+    /*border-bottom:1px solid #d9d9d9;*/
+    
+}
+.displayMenu img
+{
+    border:1px solid #c6c6c6;
+}
+
+.displayMenu input
+{
+    padding-bottom: 50px;
+}
+
+.displayMenuInformation
+{
+    text-align:center;
+}
+
+.createNewButton
+{
+    list-style-type:none;
+    margin:20px 10px 10px 50px;
+    height:70px;
+    width:150px;
+    display:inline-block;
+    text-align:center;
+    padding-top:50px;
+    
+    
+    background-color: #3b9fff;
+    color: #fff;
+}
+
+.createNewButton:hover
+{
+    background-color:#2780d5;
+}
+
+.createNewButton a
+{
+    text-decoration: none;
+    color: #fff;  
+}
+
+.bodyAdminContent
+{
+    float:left;
+    margin-left:70px;
+    margin-top:10px;
+    width:auto;
+    color:#808080;
+}
 .paypalButton input
 {
     background-image:url(https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif);

@@ -156,6 +156,16 @@
     <Content Include="Content\Images\icons-36-black.png" />
     <Content Include="Content\Images\icons-36-white.png" />
     <Content Include="Content\Images\icoResto1.jpg" />
+    <Content Include="Content\Images\menu\aligot.jpg" />
+    <Content Include="Content\Images\menu\canardlaque.jpg" />
+    <Content Include="Content\Images\menu\empty.jpg" />
+    <Content Include="Content\Images\menu\enchiladas.jpg" />
+    <Content Include="Content\Images\menu\fajitas.jpg" />
+    <Content Include="Content\Images\menu\hamburger.jpg" />
+    <Content Include="Content\Images\menu\nem.jpg" />
+    <Content Include="Content\Images\menu\pouletcurry.jpg" />
+    <Content Include="Content\Images\menu\spaghetti.jpg" />
+    <Content Include="Content\Images\menu\sushimaki.jpg" />
     <Content Include="Content\jquery.mobile-1.0b2.css" />
     <Content Include="Content\jquery.mobile-1.0b2.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
