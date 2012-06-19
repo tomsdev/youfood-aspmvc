@@ -1,14 +1,15 @@
 @model IEnumerable<tmf.entities.ProductType>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Product Type";
 }
 
-<h2>Index</h2>
+<h2><span class="titleContent">Product Type</span></h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="createNewButton">
+    @Html.ActionLink("Create product type", "Create")
+</div>
+<div class="bodyContent">
 <table>
     <tr>
         <th></th>
@@ -37,5 +38,6 @@
 }
 
 </table>
+</div>
 
 

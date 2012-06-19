@@ -1,25 +1,26 @@
 @model tmf.entities.Restaurant
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit a restaurant";
 }
 
-<h2>Edit</h2>
-
+<h2><span class="titleContent">Edit a restaurant</span></h2>
+<div class="bodyContent">
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Restaurant</legend>
+    @*<fieldset>
+        <legend>Restaurant</legend>*@
 
         @Html.HiddenFor(model => model.Id)
 		@Html.Partial("_CreateOrEdit", Model)
 
         <p>
-            <input type="submit" value="Save" />
+            <input class="submitInput" type="submit" value="Save" />
         </p>
-    </fieldset>
+    @*</fieldset>*@
 }
 
-<div>
+<div class="backToListLink">
     @Html.ActionLink("Back to List", "Index")
 </div>
+    </div>

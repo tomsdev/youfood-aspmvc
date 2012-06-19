@@ -1,26 +1,27 @@
 @model tmf.entities.ProductType
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create a new product type";
 }
 
-<h2>Create</h2>
+<h2><span class="titleContent">Create a new product type</span></h2>
 
+<div class="bodyContent">
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>ProductType</legend>
+    @*<fieldset>
+        <legend>ProductType</legend>*@
 
 		@Html.Partial("_CreateOrEdit", Model)
 
         <p>
-            <input type="submit" value="Create" />
+            <input class="submitInput" type="submit" value="Create" />
         </p>
-    </fieldset>
+    @*</fieldset>*@
 }
 
-<div>
+<div class="backToListLink">
     @Html.ActionLink("Back to List", "Index")
 </div>
-
+    </div>
 

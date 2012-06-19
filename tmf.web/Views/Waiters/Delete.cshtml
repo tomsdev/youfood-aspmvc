@@ -1,29 +1,31 @@
 @model tmf.entities.Waiter
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Delete a waiter";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Waiter</legend>
+<h2><span class="titleContent">Delete a waiter</span></h2>
+<div class="bodyContent">
+<h3><div class="deleteThis">Are you sure you want to delete this?</div></h3>
+@*<fieldset>
+    <legend>Waiter</legend>*@
 
     <div class="display-label">FullName</div>
     <div class="display-field">@Model.FullName</div>
-
+    <br />
     <div class="display-label">Zones</div>
     <div class="display-field">@(Model.Zones == null ? "None" : Model.Zones.Count.ToString())</div>
-
+    <br />
     <div class="display-label">Orders</div>
-    <div class="display-field">@(Model.Orders == null ? "None" : Model.Orders.Count.ToString())</div>
-</fieldset>
+    <div class="display-field">@(Model.Orders == null ? "None" : Model.Orders.Count.ToString())</div><br />
+@*</fieldset>*@
 @using (Html.BeginForm()) {
     <p>
-        <input type="submit" value="Delete" /> |
+        <input class="submitInput" type="submit" value="Delete" />
+        <div class="backToListLink">
         @Html.ActionLink("Back to List", "Index")
+            </div>
     </p>
 }
-
+    </div>
 

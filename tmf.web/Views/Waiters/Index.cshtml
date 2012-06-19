@@ -1,14 +1,15 @@
 @model IEnumerable<tmf.entities.Waiter>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Waiters";
 }
 
-<h2>Index</h2>
+<h2><span class="titleContent">Waiters</span></h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="createNewButton">
+    @Html.ActionLink("Create waiter", "Create")
+</div>
+<div class="bodyContent">
 <table>
     <tr>
         <th></th>
@@ -45,4 +46,4 @@
 
 </table>
 
-
+</div>

@@ -51,11 +51,6 @@ body
     font-family:'Segoe UI', 'Trebuchet MS';
 }
 
-#contentBody
-{
-    
-}
-
 .divSeparator
 {
     text-align:center;
@@ -127,7 +122,6 @@ li a
     display:inline-block;
     text-align:center;
     padding-top:50px;
-    
     
     background-color: #3b9fff;
     color: #fff;
@@ -366,4 +360,36 @@ table a
 {
     background-image:url(https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif);
     border:none;
+}
+
+.backToListLink
+{
+    background-color:#3b9fff;
+    width:200px;
+    height:25px;
+    margin-left:2px;
+    padding-top:2px;
+    text-align:center;
+}
+
+.backToListLink a
+{
+    text-decoration: none;
+    color: #fff;
+}
+
+.backToListLink:hover
+{
+    background-color:#2780d5;
+}
+
+.deleteThis
+{
+    background-color:#c6c6c6;
+    width:400px;
+    height:30px;
+    margin-left:2px;
+    padding-top:2px;
+    text-align:center;
+    color:#fff;
 }

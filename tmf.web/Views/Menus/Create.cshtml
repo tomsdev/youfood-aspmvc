@@ -1,26 +1,27 @@
 @model tmf.entities.Menu
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create a menu";
 }
 
-<h2>Create</h2>
+<h2><span class="titleContent">Create a menu</span></h2>
 
+<div class="bodyContent">
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Menu</legend>
+    @*<fieldset>
+        <legend>Menu</legend>*@
 
 		@Html.Partial("_CreateOrEdit", Model)
 
         <p>
-            <input type="submit" value="Create" />
+            <input class="submitInput" type="submit" value="Create" />
         </p>
-    </fieldset>
+    @*</fieldset>*@
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="backToListLink">
+   @Html.ActionLink("Back to List", "Index")
 </div>
-
+    </div>
 
