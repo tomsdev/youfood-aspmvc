@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\ajax-loader.png" />
+    <Content Include="Content\Images\btn_xpressCheckout.gif" />
     <Content Include="Content\Images\icon-search-black.png" />
     <Content Include="Content\Images\icons-18-black.png" />
     <Content Include="Content\Images\icons-18-white.png" />

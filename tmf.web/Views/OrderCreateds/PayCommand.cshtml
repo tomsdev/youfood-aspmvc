@@ -45,8 +45,8 @@
 
         <input type="hidden" name="item_name" value="Menu YouFood" />
         <input type="hidden" name="amount" value="@ViewBag.addition" />
-
-        <input type="submit" id="paypalButton" value="Pay" onclick="$.get('/Orders/CreateFromOrder?idOrder=' + '@Model.Id' + '&state=paid' );"/>
+        <br />
+        <input type="submit" id="paypalButton" value="" onclick="$.get('/Orders/CreateFromOrder?idOrder=' + '@Model.Id' + '&state=paid' );" />
 
     </form>
 </div>

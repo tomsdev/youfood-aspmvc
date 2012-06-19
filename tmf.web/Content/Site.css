@@ -356,10 +356,12 @@ table a
     width:auto;
     color:#808080;
 }
-.paypalButton input
+#paypalButton
 {
-    background-image:url(https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif);
+    background-image:url(Images/btn_xpressCheckout.gif);
     border:none;
+    width:144px;
+    height:45px;
 }
 
 .backToListLink
