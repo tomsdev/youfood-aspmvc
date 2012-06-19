@@ -55,6 +55,7 @@ namespace tmf.web.Models
             foreach (var item in purgeQuery)
             {
                 Delete(item.Id);
+                Save();
             }
         }
 

@@ -61,12 +61,12 @@ namespace tmf.web.Controllers
             else if (state == "cooked")
             {
                 order = orderRepository.TransformOrderTo<OrderCooked>(idOrder);
-                return RedirectToAction("Index", "OrderCookings");
+                return RedirectToAction("Index", "OrderPlaceds");
             }
             else if (state == "served")
             {
                 order = orderRepository.TransformOrderTo<OrderServed>(idOrder);
-                return RedirectToAction("Index", "OrderCookeds");
+                return RedirectToAction("Index", "OrderCreateds");
             }
             else if (state == "paid")
             {
