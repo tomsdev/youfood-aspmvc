@@ -8,15 +8,11 @@
 <div class="bodyContent">
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    @*<fieldset>
-        <legend>Waiter</legend>*@
-
 		@Html.Partial("_CreateOrEdit", Model)
 
         <p>
             <input class="submitInput" type="submit" value="Create" />
         </p>
-    @*</fieldset>*@
 }
 
 <div class="backToListLink">

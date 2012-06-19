@@ -4,7 +4,6 @@
         <meta charset="utf-8" />
 	    <title>YouFood - @ViewBag.Title</title> 
         <meta name="viewport" content="width=device-width" />
-	    <!-- <link rel="stylesheet" href="@Url.Content("~/Content/jquery.mobile-1.0b2.min.css")" /> -->
         <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" />
 	    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")"></script>
         <script type="text/javascript">
@@ -15,7 +14,6 @@
                 $.mobile.ajaxEnabled = false;
             });
         </script>
-        <!-- <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.mobile-1.0b2.min.js")"></script> -->
 	    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")"></script>
 	    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.signalR-0.5.0.js")"></script>
 	    <script type="text/javascript" src="@Url.Content("~/signalr/hubs")"></script>
@@ -31,7 +29,6 @@
             else
             {
 		        <img id="iconResto" src="~/Content/Images/icoResto1.jpg" /><div id="title"><h1>@ViewBag.Title</h1></div>
-                @*<div id="logon">@Html.Partial("_LogOnPartial")</div>*@
             }
 	    </div>
         @if (ViewBag.Title != "Start" && ViewBag.Title != "Delete" && ViewBag.Title != "Categories" && ViewBag.Title != "Payment")
@@ -91,9 +88,6 @@
                 <li class="liSelect">@Html.ActionLink("Stats Restaurants", "StatResto", "OrderPaids")</li>
                 <li class="liSelect">@Html.ActionLink("Stats Products", "StatProduct", "OrderPaids")</li>
             }
-
-            
-
         </ul>
         }
         <div class="divSeparator"></div>

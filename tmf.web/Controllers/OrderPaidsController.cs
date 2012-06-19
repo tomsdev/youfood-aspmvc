@@ -49,11 +49,6 @@ namespace tmf.web.Controllers
             }
 
             var query = orderpaidRepository.AllIncluding(orderpaid => orderpaid.Waiter, orderpaid => orderpaid.Restaurant, orderpaid => orderpaid.Menus);
-            
-            //if(productType != null && restaurant != null)
-            //{
-                
-            //}
 
             var vm = new OrderFilterViewModel();
 

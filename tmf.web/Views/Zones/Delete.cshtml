@@ -8,8 +8,6 @@
 
 <div class="bodyContent">
 <h3><div class="deleteThis">Are you sure you want to delete this?</div></h3>
-@*<fieldset>
-    <legend>Zone</legend>*@
 
     <div class="display-label">Name</div>
     <div class="display-field">@Model.Name</div>
@@ -22,7 +20,6 @@
     <br />
     <div class="display-label">Restaurant</div>
     <div class="display-field">@(Model.Restaurant == null ? "None" : Model.Restaurant.Name)</div><br />
-@*</fieldset>*@
 @using (Html.BeginForm()) {
     <p>
         <input class="submitInput" type="submit" value="Delete" />

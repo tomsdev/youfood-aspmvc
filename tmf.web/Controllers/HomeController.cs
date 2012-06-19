@@ -51,9 +51,6 @@ namespace tmf.web.Controllers
             Session["restaurant"] = restaurant;
             Session["table"] = table;
 
-            //exemple pour recup le resto:
-            //var monResto = Session["restaurant"] as Restaurant;
-
             return RedirectToAction("Roles");
         }
 

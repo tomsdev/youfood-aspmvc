@@ -49,12 +49,6 @@ namespace tmf.web.Controllers
 
         public ActionResult Create()
         {
-            /* ancienne valeur
-			ViewBag.PossibleWaiters = waiterRepository.All;
-			ViewBag.PossibleRestaurants = restaurantRepository.All;
-            return View();
-             */
-
             OrderCreating ordercreating = new OrderCreating();
 
             var monResto = Session["restaurant"] as Restaurant;
@@ -74,37 +68,6 @@ namespace tmf.web.Controllers
             return RedirectToAction("OrderOneMenu", "Menus", new { idOrder = ordercreating.Id });
 
         } 
-
-        //
-        // POST: /OrderCreatings/Create
-
-        /* fonction en theorie inutile desormais vu que l'utilisateur n'as plus a remplir le formulaire
-        [HttpPost]
-        public ActionResult Create(OrderCreating ordercreating)
-        {
-            if (ModelState.IsValid) {
-                var monResto = Session["restaurant"] as Restaurant;
-                ordercreating.RestaurantId = monResto.Id;
-
-                var maTable = int.Parse(Session["table"].ToString());
-                ordercreating.Table = maTable;
-
-                var zone = zoneRepository.GetZoneByTable(maTable);
-                ordercreating.WaiterId = zone.WaiterId;
-                
-
-                ordercreatingRepository.InsertOrUpdate(ordercreating);
-                ordercreatingRepository.Save();
-
-                // redirige sur l'ajout de menu pour un order:
-                return RedirectToAction("OrderOneMenu", "Menus", new {idOrder = ordercreating.Id});
-            } else {
-				ViewBag.PossibleWaiters = waiterRepository.All;
-				ViewBag.PossibleRestaurants = restaurantRepository.All;
-				return View();
-			}
-             
-        }*/
         
         //
         // GET: /OrderCreatings/Edit/5

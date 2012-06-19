@@ -9,8 +9,6 @@
 <div class="bodyContent">
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    @*<fieldset>
-        <legend>ProductType</legend>*@
 
         @Html.HiddenFor(model => model.Id)
 		@Html.Partial("_CreateOrEdit", Model)
@@ -18,7 +16,6 @@
         <p>
             <input class="submitInput" type="submit" value="Save" />
         </p>
-    @*</fieldset>*@
 }
 
 <div class="backToListLink">

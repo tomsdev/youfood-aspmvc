@@ -259,9 +259,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Index.mobile.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\mvc.helpers\mvc.helpers.csproj">
       <Project>{741e6786-3fa0-4f04-9a89-8bb8659e2d67}</Project>
       <Name>mvc.helpers</Name>
@@ -511,7 +508,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Menus\OrderOneMenu.cshtml" />
-    <Content Include="Views\Home\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Order.cshtml" />

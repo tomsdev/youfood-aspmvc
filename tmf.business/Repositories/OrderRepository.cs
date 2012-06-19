@@ -22,10 +22,6 @@ namespace tmf.web.Models
             var newOrder = new T();
 
             newOrder.Table = order.Table;
-
-            // soit; supprime les orders apres la supression de l'ancien state (ne pas utiliser et a suppr a la fin du projet)
-            //newOrder.Menus = order.Menus;
-
             
             // pour empecher la nullexception
             newOrder.Menus = new List<Menu>();

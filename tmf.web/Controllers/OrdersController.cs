@@ -32,8 +32,6 @@ namespace tmf.web.Controllers
         public PartialViewResult GetOrder(Guid id)
         {
             var order = orderRepository.Find(id);
-            //var order = orderRepository.All.First();
-
             return PartialView("Order", order);
         }
 
