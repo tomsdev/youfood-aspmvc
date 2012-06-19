@@ -1,0 +1,31 @@
+﻿@model tmf.entities.OrderCreated
+
+@{
+    ViewBag.Title = "PayCommand";
+}
+
+<h2>PayCommand</h2>
+
+<fieldset>
+    <legend>OrderCreated</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Table)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Table)
+    </div>
+    <div>
+        <table>
+            @foreach (var item in Model.Menus)
+            {
+                @item.Prix
+                @item.Title
+            }
+        </table>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -53,6 +53,8 @@ namespace tmf.web.Controllers
                 //ajoute menu depuis le bon contexte pour eviter duplication
                 menuRepository.AddMenuToOrder(order, menu);
 
+
+
                 if (orderOneMenuViewModel.IsOrderTerminated)
                 {
                     return RedirectToAction("CreateFromOrder", "Orders", new { idOrder = orderOneMenuViewModel.IdOrder, controllerName = "OrderCreateds", state = "created"});

@@ -96,7 +96,7 @@ namespace tmf.web.Models
             }
             else
             {
-                return new Zone();
+                return this.Find(FindIdByName("Zone6"));
             }
         }
 

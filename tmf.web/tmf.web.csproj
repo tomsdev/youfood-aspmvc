@@ -511,7 +511,7 @@
     <Content Include="Views\Home\Roles.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Orders\PayCommand.cshtml" />
+    <Content Include="Views\OrderCreateds\PayCommand.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

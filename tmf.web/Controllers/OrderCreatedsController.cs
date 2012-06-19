@@ -96,6 +96,17 @@ namespace tmf.web.Controllers
 			}
         }
 
+        public ViewResult PayCommand()
+        {
+            var maTable = int.Parse(Session["table"].ToString());
+
+            var queryOrder = from order in ordercreatedRepository.All
+                             where order.Table == maTable
+                             select order;
+
+            return View(queryOrder.First());
+        }
+
         //
         // GET: /OrderCreateds/Delete/5
  

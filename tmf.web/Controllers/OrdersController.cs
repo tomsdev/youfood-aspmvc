@@ -46,7 +46,7 @@ namespace tmf.web.Controllers
             if (state == "created")
             {
                 order = orderRepository.TransformOrderTo<OrderCreated>(idOrder);
-                return RedirectToAction("PayCommand", "Orders");
+                return RedirectToAction("PayCommand", "OrderCreateds");
             }
             else if (state == "placed")
             {
@@ -168,11 +168,6 @@ namespace tmf.web.Controllers
             orderRepository.Save();
 
             return RedirectToAction("Index");
-        }
-
-        public ViewResult PayCommand(Menu menu)
-        {
-            return View(menu);
         }
 
         protected override void Dispose(bool disposing)
