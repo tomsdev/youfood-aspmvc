@@ -295,3 +295,9 @@ table a
     text-align:center;
     color:#fff;
 }
+
+.paypalButton input
+{
+    background-image:url(https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif);
+    border:none;
+}

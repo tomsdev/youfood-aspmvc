@@ -37,5 +37,17 @@
         <span><br />Prix total : </span>
         @String.Format("{0:F}", ViewBag.addition)
     </div>
+
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="business" value="maxime_1340114753_per@supinfo.com" />
+
+        <input type="hidden" name="item_name" value="Menu YouFood" />
+        <input type="hidden" name="amount" value="@ViewBag.addition" />
+
+        <input type="submit" id="paypalButton" value="Pay" />
+
+    </form>
 </div>
 @*</fieldset>*@
