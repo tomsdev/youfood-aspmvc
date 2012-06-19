@@ -147,6 +147,7 @@
     <Compile Include="ViewModels\IndexViewModel.cs" />
     <Compile Include="ViewModels\OrderFilterViewModel.cs" />
     <Compile Include="ViewModels\OrderOneMenuViewModel.cs" />
+    <Compile Include="ViewModels\StatViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\ajax-loader.png" />
@@ -523,6 +524,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\OrderCreateds\PayCommand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OrderPaids\StatResto.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OrderPaids\StatProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Admin.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

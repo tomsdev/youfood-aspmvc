@@ -30,6 +30,11 @@ namespace tmf.web.Controllers
             this.orderCreatingRepository = orderCreatingRepository;
         }
 
+        public ActionResult Admin()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             ViewBag.PossibleRestaurants = restaurantRepository.All;
@@ -80,8 +85,7 @@ namespace tmf.web.Controllers
             }
             else if (role == "admin")
             {
-                // TODO: rediriger sur la vrai page admin
-                return RedirectToAction("Contact");
+                return RedirectToAction("Admin");
             }
 
             return RedirectToAction("Roles");

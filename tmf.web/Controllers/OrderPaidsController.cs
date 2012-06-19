@@ -88,6 +88,70 @@ namespace tmf.web.Controllers
             return RedirectToAction("Filter");
         }
 
+        public ViewResult StatResto()
+        {
+            var vm = new List<StatViewModel>();
+
+            var restaurants = restaurantRepository.All;
+
+            foreach (var resto in restaurants)
+            {
+                StatViewModel stat = new StatViewModel();
+
+                var ordersResto = orderpaidRepository.AllIncluding(p => p.Menus).Where(p => p.RestaurantId == resto.Id);
+                double benefice = 0;
+
+                foreach (var order in ordersResto)
+                {
+                    foreach (var menu in order.Menus)
+                    {
+                        benefice += menu.Prix;
+                    }
+                }
+
+                stat.Benefice = benefice;
+                stat.Title = resto.Name;
+
+                vm.Add(stat);
+            }
+
+            return View(vm);
+        }
+
+        public ViewResult StatProduct()
+        {
+            var vm = new List<StatViewModel>();
+
+            var types = producttypeRepository.All;
+
+            var orders = orderpaidRepository.AllIncluding(p => p.Menus).ToList();
+
+            foreach (var type in types)
+            {
+                StatViewModel stat = new StatViewModel();
+
+                double benefice = 0;
+
+                foreach (var order in orders)
+                {
+                    foreach (var menu in order.Menus)
+                    {
+                        if (menu.ProductTypeId == type.Id)
+                        {
+                            benefice += menu.Prix;
+                        }
+                    }
+                }
+
+                stat.Benefice = benefice;
+                stat.Title = type.Description;
+
+                vm.Add(stat);
+            }
+
+            return View(vm);
+        }
+
         //
         // GET: /OrderPaids/
 

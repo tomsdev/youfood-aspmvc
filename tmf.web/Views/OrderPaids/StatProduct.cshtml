@@ -1,0 +1,31 @@
+﻿@model IEnumerable<tmf.web.ViewModels.StatViewModel>
+
+@{
+    ViewBag.Title = "Stats";
+}
+
+<h2>Stats by product type</h2>
+
+<table>
+    <tr>
+        <th>
+            Product type
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Benefice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Benefice)€
+        </td>
+    </tr>
+}
+
+</table>
