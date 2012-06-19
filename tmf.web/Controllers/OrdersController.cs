@@ -40,43 +40,52 @@ namespace tmf.web.Controllers
         //
         // GET: /OrderPlaceds/CreateFromOrder
 
-        public ActionResult CreateFromOrder(Guid idOrder, string controllerName, string state)
+        public ActionResult CreateFromOrder(Guid idOrder, string state)
         {
             Order order = null;
+            string actionName = "";
+            string controllerName = "";
+
             if (state == "created")
             {
                 order = orderRepository.TransformOrderTo<OrderCreated>(idOrder);
-                return RedirectToAction("PayCommand", "OrderCreateds");
+                actionName = "PayCommand";
+                controllerName = "OrderCreateds";
             }
             else if (state == "placed")
             {
                 order = orderRepository.TransformOrderTo<OrderPlaced>(idOrder);
-                return RedirectToAction("Index", "OrderCreateds");
+                actionName = "Index";
+                controllerName = "OrderCreateds";
             }
             else if (state == "cooking")
             {
                 order = orderRepository.TransformOrderTo<OrderCooking>(idOrder);
-                return RedirectToAction("Index", "OrderPlaceds");
+                actionName = "Index";
+                controllerName = "OrderPlaceds";
             }
             else if (state == "cooked")
             {
                 order = orderRepository.TransformOrderTo<OrderCooked>(idOrder);
-                return RedirectToAction("Index", "OrderPlaceds");
+                actionName = "Index";
+                controllerName = "OrderPlaceds";
             }
             else if (state == "served")
             {
                 order = orderRepository.TransformOrderTo<OrderServed>(idOrder);
-                return RedirectToAction("Index", "OrderCreateds");
+                actionName = "Index";
+                controllerName = "OrderCreateds";
             }
             else if (state == "paid")
             {
                 order = orderRepository.TransformOrderTo<OrderPaid>(idOrder);
-                return RedirectToAction("Index", "OrderServeds");
+                actionName = "Index";
+                controllerName = "OrderServeds";
             }
             
             TmfHubActions.AddOrder(order.Id, state);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(actionName, controllerName);
         }
 
         //

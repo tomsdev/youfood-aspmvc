@@ -5,19 +5,19 @@
         @if (Session["role"] != null && Session["role"].ToString() == "waiter" || Session["role"] != null && Session["role"].ToString() == "cooker" || Session["role"] != null && Session["role"].ToString() == "admin")
         {
             if(Model is tmf.entities.OrderCreated){
-                @Html.ActionLink("placed", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderPlaceds",  state="placed" }, null)            
+                @Html.ActionLink("placed", "CreateFromOrder", "Orders", new {idOrder=Model.Id,  state="placed" }, null)            
             }
             else if(Model is tmf.entities.OrderPlaced){
-                @Html.ActionLink("take command", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderCookings",  state="cooking" }, null)
+                @Html.ActionLink("take command", "CreateFromOrder", "Orders", new {idOrder=Model.Id,  state="cooking" }, null)
             }
             else if(Model is tmf.entities.OrderCooking){
-                @Html.ActionLink("terminated", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderCookeds",  state="cooked" }, null)
+                @Html.ActionLink("terminated", "CreateFromOrder", "Orders", new {idOrder=Model.Id,  state="cooked" }, null)
             }
             else if(Model is tmf.entities.OrderCooked){
-                @Html.ActionLink("served", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderServeds",  state="served" }, null)
+                @Html.ActionLink("served", "CreateFromOrder", "Orders", new {idOrder=Model.Id,  state="served" }, null)
             }
             else if(Model is tmf.entities.OrderServed){
-                @Html.ActionLink("paid", "CreateFromOrder", "Orders", new {idOrder=Model.Id, controllerName="OrderPaids",  state="paid" }, null)
+                @Html.ActionLink("paid", "CreateFromOrder", "Orders", new {idOrder=Model.Id,  state="paid" }, null)
             }  
         }
         @if(Session["role"] != null && Session["role"].ToString() == "admin")
