@@ -28,7 +28,7 @@
             }
             else
             {
-		        <img id="iconResto" src="~/Content/Images/icoResto1.jpg" /><div id="title"><h1>@ViewBag.Title</h1></div>
+		        <img id="iconResto" src="@Url.Content("~/Content/Images/icoResto1.jpg")" /><div id="title"><h1>@ViewBag.Title</h1></div>
             }
 	    </div>
         @if (ViewBag.Title != "Start" && ViewBag.Title != "Delete" && ViewBag.Title != "Categories" && ViewBag.Title != "Payment")

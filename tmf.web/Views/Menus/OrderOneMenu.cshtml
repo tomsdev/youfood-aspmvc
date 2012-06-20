@@ -16,43 +16,43 @@
                 <div class="displayMenu">
                     @if (item.Title == "Aligot")
                     {
-                        <img src="~/Content/Images/menu/aligot.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/aligot.jpg")" />
                     }
                     else if(item.Title == "Canard Laqué")
                     {
-                        <img src="~/Content/Images/menu/canardlaque.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/canardlaque.jpg")" />
                     }
                     else if(item.Title == "Enchiladas")
                     {
-                        <img src="~/Content/Images/menu/enchiladas.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/enchiladas.jpg")" />
                     }
                     else if(item.Title == "Fajitas")
                     {
-                        <img src="~/Content/Images/menu/fajitas.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/fajitas.jpg")" />
                     }
                     else if(item.Title == "Hamburger")
                     {
-                        <img src="~/Content/Images/menu/hamburger.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/hamburger.jpg")" />
                     }
                     else if(item.Title == "Nems")
                     {
-                        <img src="~/Content/Images/menu/nem.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/nem.jpg")" />
                     }
                     else if(item.Title == "Poulet au curry")
                     {
-                        <img src="~/Content/Images/menu/pouletcurry.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/pouletcurry.jpg")" />
                     }
                     else if(item.Title == "Spaghetti")
                     {
-                        <img src="~/Content/Images/menu/spaghetti.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/spaghetti.jpg")" />
                     }
                     else if(item.Title == "Sushi Maki")
                     {
-                        <img src="~/Content/Images/menu/sushimaki.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/sushimaki.jpg")" />
                     }
                     else
                     {
-                        <img src="~/Content/Images/menu/empty.jpg" />
+                        <img src="@Url.Content("~/Content/Images/menu/empty.jpg")" />
                     }
                     <div class="displayMenuInformation">
                     @Html.RadioButtonFor(model => model.IdMenuSelected, @item.Id)

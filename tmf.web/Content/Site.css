@@ -290,7 +290,7 @@ table a
 }
 #paypalButton
 {
-    background-image:url(Images/btn_xpressCheckout.gif);
+    background-image:url(/Content/Images/btn_xpressCheckout.gif);
     border:none;
     width:144px;
     height:45px;
