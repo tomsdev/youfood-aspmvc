@@ -138,8 +138,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hubs\ChatHub.cs" />
-    <Compile Include="Hubs\Copy of TmfHub.cs" />
     <Compile Include="Hubs\TmfHub.cs" />
     <Compile Include="Hubs\TmfHubActions.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -198,10 +196,7 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
-    <Content Include="Hubs\ChatHub.js" />
     <Content Include="Hubs\TmfHubOrderGeneric.js" />
-    <Content Include="Hubs\TmfHubOrder.js" />
-    <Content Include="Hubs\TmfHub.js" />
     <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />

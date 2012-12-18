@@ -8,21 +8,7 @@ namespace tmf.web.Hubs
     public static class TmfHubActions
     {
         // SignalR
-        // Push en temps réel du nouvel Order aux clients connecté
-        public static void CreateItem()
-        {
-            //var hub = SignalR.GlobalHost.ConnectionManager.GetHubContext<TmfHub>();
-
-            //var item = new Item();
-            //item.Title = "order";
-            //item.ChangedBy = new User()
-            //{
-            //    Name = "tom"
-            //};
-
-            //hub.Clients.itemAdded(item);
-        }
-
+        // Push in realtime the new Order to connected clients
         public static void AddOrder(Guid idOrder, string group)
         {
             var context = SignalR.GlobalHost.ConnectionManager.GetHubContext<TmfHub>();
